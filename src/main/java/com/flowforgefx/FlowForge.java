@@ -8,14 +8,19 @@ import com.flowforgefx.views.EditorView;
 import com.flowforgefx.views.SidebarView;
 import com.flowforgefx.views.StartView;
 import javafx.application.Application;
+import javafx.scene.Node;
 import javafx.scene.Scene;
+import javafx.scene.control.TextInputControl;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
 
 public class FlowForge extends Application {
 
+    public Scene rootScene;
     public BorderPane root;
+    public Pane editorPane;
 
     public StartController startController;
     public SidebarController sidebarController;
@@ -45,8 +50,9 @@ public class FlowForge extends Application {
     public void create(Stage stage) {
         Application.setUserAgentStylesheet(new CupertinoDark().getUserAgentStylesheet());
         root = new BorderPane();
-        Scene scene = new Scene(root, 1200, 640);
-        stage.setScene(scene);
+        rootScene = new Scene(root, 1200, 640);
+        editorPane = new Pane();
+        stage.setScene(rootScene);
         stage.setTitle("FlowForge");
     }
 

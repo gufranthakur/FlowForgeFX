@@ -7,7 +7,10 @@ import javafx.application.Platform;
 import javafx.scene.Group;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
+import javafx.scene.paint.Color;
 
 public class EditorView extends Group {
 
@@ -15,43 +18,140 @@ public class EditorView extends Group {
     private Canvas canvas;
     private AnimationTimer animationTimer;
 
-    public static boolean needsRedraw = true;
+    public boolean needsRender = true;
+    public boolean moveUp, moveDown, moveRight, moveLeft = false;
+    private final int cameraSpeed = 2;
+
+    private double viewportWidth = 800; // default values
+    private double viewportHeight = 600;
+
+    // Mouse dragging variables
+    private boolean isDragging = false;
+    private double lastMouseX, lastMouseY;
 
     public EditorView(EditorController controller) {
         this.controller = controller;
         this.controller.setEditorView(this);
+        this.setFocusTraversable(true);
 
         createCanvas();
         createTimer();
+        setupMouseHandlers();
+
+        sceneProperty().addListener((obs, oldScene, newScene) -> {
+            if (newScene != null) {
+                viewportWidth = newScene.getWidth();
+                viewportHeight = newScene.getHeight();
+
+                newScene.widthProperty().addListener((o, oldW, newW) -> viewportWidth = newW.doubleValue());
+                newScene.heightProperty().addListener((o, oldH, newH) -> viewportHeight = newH.doubleValue());
+            }
+        });
     }
 
     private void createCanvas() {
-        canvas = new Canvas(3000, 3000);
-
+        canvas = new Canvas(2048, 2048);
         this.getChildren().add(canvas);
     }
 
-    private void createTimer() {
+    private void setupMouseHandlers() {
+        this.setOnMousePressed(this::handleMousePressed);
+        this.setOnMouseDragged(this::handleMouseDragged);
+        this.setOnMouseReleased(this::handleMouseReleased);
+    }
 
+    private void handleMousePressed(MouseEvent event) {
+        if (event.isPrimaryButtonDown()) {
+            if (isClickingOnNode(event)) return;
+
+            isDragging = true;
+            lastMouseX = event.getSceneX();
+            lastMouseY = event.getSceneY();
+            this.requestFocus();
+            event.consume();
+        }
+    }
+
+    private void handleMouseDragged(MouseEvent event) {
+        if (isDragging) {
+            double deltaX = event.getSceneX() - lastMouseX;
+            double deltaY = event.getSceneY() - lastMouseY;
+
+            setLayoutX(getLayoutX() + deltaX);
+            setLayoutY(getLayoutY() + deltaY);
+
+            lastMouseX = event.getSceneX();
+            lastMouseY = event.getSceneY();
+
+            needsRender = true;
+            event.consume();
+        }
+    }
+
+    private boolean isClickingOnNode(MouseEvent event) {
+        double localX = event.getX();
+        double localY = event.getY();
+
+        for (FlowNode node : controller.nodes) {
+            if (node.getBoundsInParent().contains(localX, localY)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    private void handleMouseReleased(MouseEvent event) {
+        isDragging = false;
+    }
+
+    private void createTimer() {
+        animationTimer = new AnimationTimer() {
+            @Override
+            public void handle(long l) {
+                if (needsRender) render();
+                needsRender = false;
+            }
+        };
+
+        animationTimer.start();
     }
 
     public void addNodeToEditor(FlowNode node) {
         node.relocate(200, 200);
         this.getChildren().add(node);
-
     }
 
     public void render() {
         GraphicsContext graphics = canvas.getGraphicsContext2D();
 
-        graphics.clearRect(0, 0, 1500, 800);
+        double viewX = -getLayoutX();
+        double viewY = -getLayoutY();
 
+        graphics.clearRect(viewX, viewY, viewportWidth, viewportHeight);
+
+        // Draw gridlines
+        graphics.setStroke(Color.rgb(50, 50, 50));
+        graphics.setLineWidth(1);
+
+        int gridSize = 32;
+        int startX = (int)(viewX / gridSize) * gridSize;
+        for (int x = startX; x < viewX + viewportWidth; x += gridSize) {
+            graphics.strokeLine(x, viewY, x, viewY + viewportHeight);
+        }
+
+        int startY = (int)(viewY / gridSize) * gridSize;
+        for (int y = startY; y < viewY + viewportHeight; y += gridSize) {
+            graphics.strokeLine(viewX, y, viewX + viewportWidth, y);
+        }
+
+        // Draw connections
         for (FlowNode node : controller.nodes) {
             node.drawConnection(graphics);
             node.drawXConnection(graphics);
         }
-
-
     }
 
+    public void drawReady() {
+        needsRender = true;
+    }
 }

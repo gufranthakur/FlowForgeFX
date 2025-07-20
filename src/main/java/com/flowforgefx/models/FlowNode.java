@@ -14,8 +14,6 @@ import javafx.scene.shape.Rectangle;
 
 import java.util.ArrayList;
 
-import static com.flowforgefx.views.EditorView.needsRedraw;
-
 public abstract class FlowNode extends Group {
 
     private EditorController controller;
@@ -32,6 +30,8 @@ public abstract class FlowNode extends Group {
 
     protected boolean isDragging = false;
     protected double dragOffsetX, dragOffsetY;
+    protected final int width = 210;
+    protected final int height = 150;
 
     public boolean isBeingConnected = false;
     public boolean isBeingXConnected = false;
@@ -53,7 +53,7 @@ public abstract class FlowNode extends Group {
         this.title = title;
         this.controller = controller;
 
-        background = new Rectangle(210, 150, nodeTheme);
+        background = new Rectangle(width, height, nodeTheme);
         background.setArcWidth(10);
         background.setArcHeight(10);
         background.setStroke(Color.GRAY);
@@ -64,28 +64,24 @@ public abstract class FlowNode extends Group {
         titleLabel.setLayoutX(10);
         titleLabel.setLayoutY(10);
 
-        inputButton = createRadio("Input", 10, 50);
-        inputXButton = createRadio("InputX", 10, 80);
-        outputButton = createRadio("Output", 150, 50);
-        outputXButton = createRadio("OutputX", 150, 80);
+        inputButton = createRadio("Input", 10, 70);
+        inputXButton = createRadio("InputX", 10, 100);
+        outputButton = createRadio("Output", 120, 70);
+        outputXButton = createRadio("OutputX", 120, 100);
 
         getChildren().addAll(background, titleLabel, inputButton, inputXButton, outputButton, outputXButton);
 
         createListeners();
         initDrag();
 
-        setCache(true);
-        setCacheHint(CacheHint.SPEED);
-
     }
 
     private RadioButton createRadio(String text, double x, double y) {
-        RadioButton rb = new RadioButton(text);
-        rb.setTextFill(Color.WHITE);
-        rb.setLayoutX(x);
-        rb.setLayoutY(y);
-        rb.setPickOnBounds(true);
-        return rb;
+        RadioButton button = new RadioButton(text);
+        button.setTextFill(Color.WHITE);
+        button.setLayoutX(x);
+        button.setLayoutY(y);
+        return button;
     }
 
     private void createListeners() {
@@ -141,7 +137,7 @@ public abstract class FlowNode extends Group {
                 dragOffsetY = e.getSceneY() - getLayoutY();
                 setCursor(Cursor.MOVE);
 
-                controller.getEditorView().render();
+                controller.getEditorView().drawReady();
             }
         });
 
@@ -155,7 +151,7 @@ public abstract class FlowNode extends Group {
                 double newX = e.getSceneX() - dragOffsetX;
                 double newY = e.getSceneY() - dragOffsetY;
                 relocate(newX, newY);
-                controller.getEditorView().render();
+                controller.getEditorView().drawReady();
             }
         });
     }

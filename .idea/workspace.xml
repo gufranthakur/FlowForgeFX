@@ -4,7 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b13386d5-f533-4290-91df-3ca7dae1d009" name="Changes" comment="" />
+    <list default="true" id="b13386d5-f533-4290-91df-3ca7dae1d009" name="Changes" comment="Fixed performance issue (by a little)">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/flowforgefx/FlowForge.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/flowforgefx/FlowForge.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/flowforgefx/controller/SidebarController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/flowforgefx/controller/SidebarController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/flowforgefx/controller/StartController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/flowforgefx/controller/StartController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/flowforgefx/models/FlowNode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/flowforgefx/models/FlowNode.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/flowforgefx/views/EditorView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/flowforgefx/views/EditorView.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -17,6 +24,21 @@
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;gufranthakur&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/gufranthakur/FlowForgeFX.git&quot;,
+    &quot;accountId&quot;: &quot;5377359c-34fe-4a7a-acfc-436927a07180&quot;
+  }
+}</component>
   <component name="MavenImportPreferences">
     <option name="generalSettings">
       <MavenGeneralSettings>
@@ -35,23 +57,35 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "Application.FlowForge-Debug.executor": "Run",
+    "Application.FlowForge-Maximum.executor": "Run",
+    "Application.FlowForge-Optimised.executor": "Run",
     "Application.FlowForge.executor": "Run",
     "Application.HelloApplication.executor": "Run",
     "ModuleVcsDetector.initialDetectionPerformed": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
     "ToolWindow.Run.ShowToolbar": "false",
-    "last_opened_file_path": "/lib/jvm",
+    "git-widget-placeholder": "master",
+    "last_opened_file_path": "/home/gufranthakur/code/java/FlowForgeFX",
     "project.structure.last.edited": "Project",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2056962",
     "settings.editor.selected.configurable": "preferences.pathVariables"
   }
 }]]></component>
-  <component name="RunManager" selected="Application.FlowForge-Debug">
+  <component name="RunManager" selected="Application.FlowForge-Optimised">
     <configuration name="FlowForge-Debug" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="com.flowforgefx.FlowForge" />
       <module name="FlowForgeFX" />
-      <option name="VM_PARAMETERS" value="-Dprism.verbose=true -Dprism.order=es2 -Dprism.forceGPU=true" />
+      <option name="VM_PARAMETERS" value="-Dprism.verbose=true -Dprism.order=es2 -Dprism.forceGPU=true -Djavafx.animation.fullspeed=true" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="FlowForge-Optimised" type="Application" factoryName="Application" singleton="false">
+      <option name="MAIN_CLASS_NAME" value="com.flowforgefx.FlowForge" />
+      <module name="FlowForgeFX" />
+      <option name="VM_PARAMETERS" value="-Djavafx.animation.fullspeed=true" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -72,6 +106,7 @@
     </configuration>
     <list>
       <item itemvalue="Application.FlowForge-Debug" />
+      <item itemvalue="Application.FlowForge-Optimised" />
       <item itemvalue="Application.FlowForge" />
     </list>
     <recent_temporary>
@@ -88,6 +123,19 @@
       <option name="presentableId" value="Default" />
       <updated>1752641329510</updated>
     </task>
+    <task id="LOCAL-00001" summary="Fixed performance issue (by a little)">
+      <option name="closed" value="true" />
+      <created>1753003544170</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1753003544170</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Fixed performance issue (by a little)" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed performance issue (by a little)" />
   </component>
 </project>

@@ -17,7 +17,9 @@ public class StartController {
     public void switchToProgramPane() {
         flowForge.root.getChildren().remove(flowForge.startView);
 
-        flowForge.root.setCenter(flowForge.editorView);
+        flowForge.editorPane.getChildren().add(flowForge.editorView);
+
+        flowForge.root.setCenter(flowForge.editorPane);
         flowForge.root.setLeft(flowForge.sidebarView);
     }
 }

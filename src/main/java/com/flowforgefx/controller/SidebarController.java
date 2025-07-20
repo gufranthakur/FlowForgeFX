@@ -20,6 +20,7 @@ public class SidebarController {
         if (event.getButton() == MouseButton.SECONDARY) {
             System.out.println("popup, yay");
         } else {
+            if (selectedItem == null) return;
             getSelectedNodeAtTree(selectedItem.getValue());
         }
     }
