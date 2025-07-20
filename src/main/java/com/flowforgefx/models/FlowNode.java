@@ -2,13 +2,13 @@ package com.flowforgefx.models;
 
 import com.flowforgefx.controller.EditorController;
 import javafx.geometry.Point2D;
-import javafx.scene.CacheHint;
 import javafx.scene.Cursor;
 import javafx.scene.Group;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
 import javafx.scene.input.MouseButton;
+import javafx.scene.layout.Background;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 
@@ -30,7 +30,7 @@ public abstract class FlowNode extends Group {
 
     protected boolean isDragging = false;
     protected double dragOffsetX, dragOffsetY;
-    protected final int width = 210;
+    protected final int width = 200;
     protected final int height = 150;
 
     public boolean isBeingConnected = false;
@@ -64,10 +64,10 @@ public abstract class FlowNode extends Group {
         titleLabel.setLayoutX(10);
         titleLabel.setLayoutY(10);
 
-        inputButton = createRadio("Input", 10, 70);
-        inputXButton = createRadio("InputX", 10, 100);
-        outputButton = createRadio("Output", 120, 70);
-        outputXButton = createRadio("OutputX", 120, 100);
+        inputButton = createRadio("Input", 10, 80);
+        inputXButton = createRadio("InputX", 10, 110);
+        outputButton = createRadio("Output", 100, 80);
+        outputXButton = createRadio("OutputX", 100, 110);
 
         getChildren().addAll(background, titleLabel, inputButton, inputXButton, outputButton, outputXButton);
 
@@ -79,6 +79,7 @@ public abstract class FlowNode extends Group {
     private RadioButton createRadio(String text, double x, double y) {
         RadioButton button = new RadioButton(text);
         button.setTextFill(Color.WHITE);
+        button.setBackground(Background.EMPTY);
         button.setLayoutX(x);
         button.setLayoutY(y);
         return button;
@@ -137,7 +138,7 @@ public abstract class FlowNode extends Group {
                 dragOffsetY = e.getSceneY() - getLayoutY();
                 setCursor(Cursor.MOVE);
 
-                controller.getEditorView().drawReady();
+                controller.getEditorView().needsRender();
             }
         });
 
@@ -151,7 +152,7 @@ public abstract class FlowNode extends Group {
                 double newX = e.getSceneX() - dragOffsetX;
                 double newY = e.getSceneY() - dragOffsetY;
                 relocate(newX, newY);
-                controller.getEditorView().drawReady();
+                controller.getEditorView().needsRender();
             }
         });
     }

@@ -3,13 +3,10 @@ package com.flowforgefx.views;
 import com.flowforgefx.controller.EditorController;
 import com.flowforgefx.models.FlowNode;
 import javafx.animation.AnimationTimer;
-import javafx.application.Platform;
 import javafx.scene.Group;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
-import javafx.scene.input.KeyCode;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 
 public class EditorView extends Group {
@@ -18,16 +15,13 @@ public class EditorView extends Group {
     private Canvas canvas;
     private AnimationTimer animationTimer;
 
-    public boolean needsRender = true;
-    public boolean moveUp, moveDown, moveRight, moveLeft = false;
-    private final int cameraSpeed = 2;
-
     private double viewportWidth = 800; // default values
     private double viewportHeight = 600;
 
     // Mouse dragging variables
     private boolean isDragging = false;
     private double lastMouseX, lastMouseY;
+    private boolean needsRender = true;
 
     public EditorView(EditorController controller) {
         this.controller = controller;
@@ -144,14 +138,14 @@ public class EditorView extends Group {
             graphics.strokeLine(viewX, y, viewX + viewportWidth, y);
         }
 
-        // Draw connections
         for (FlowNode node : controller.nodes) {
             node.drawConnection(graphics);
             node.drawXConnection(graphics);
         }
+
     }
 
-    public void drawReady() {
+    public void needsRender() {
         needsRender = true;
     }
 }

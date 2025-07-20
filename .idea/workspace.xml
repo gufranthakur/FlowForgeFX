@@ -4,13 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b13386d5-f533-4290-91df-3ca7dae1d009" name="Changes" comment="Fixed performance issue (by a little)">
+    <list default="true" id="b13386d5-f533-4290-91df-3ca7dae1d009" name="Changes" comment="Fixed performance by only updating when a change is required. Also added mouse dragging">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/flowforgefx/FlowForge.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/flowforgefx/FlowForge.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/flowforgefx/controller/SidebarController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/flowforgefx/controller/SidebarController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/flowforgefx/controller/StartController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/flowforgefx/controller/StartController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/flowforgefx/models/FlowNode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/flowforgefx/models/FlowNode.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/flowforgefx/models/nodes/PrintNode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/flowforgefx/models/nodes/PrintNode.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/flowforgefx/views/EditorView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/flowforgefx/views/EditorView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/flowforgefx/views/SidebarView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/flowforgefx/views/SidebarView.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -131,11 +131,20 @@
       <option name="project" value="LOCAL" />
       <updated>1753003544170</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Fixed performance by only updating when a change is required. Also added mouse dragging">
+      <option name="closed" value="true" />
+      <created>1753026860922</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1753026860922</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Fixed performance issue (by a little)" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed performance issue (by a little)" />
+    <MESSAGE value="Fixed performance by only updating when a change is required. Also added mouse dragging" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed performance by only updating when a change is required. Also added mouse dragging" />
   </component>
 </project>

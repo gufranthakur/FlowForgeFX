@@ -45,6 +45,8 @@ public class FlowForge extends Application {
         createViews();
         addComponents();
         stage.show();
+        System.out.println(System.getProperty("javafx.version"));
+
     }
 
     public void create(Stage stage) {

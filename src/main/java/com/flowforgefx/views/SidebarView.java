@@ -31,9 +31,7 @@ public class SidebarView extends VBox {
     public SidebarView(SidebarController controller) {
         this.controller = controller;
         this.setPrefWidth(300);
-        this.setPadding(new Insets(5));
-        this.setBackground(new Background(new BackgroundFill(Color.rgb(20, 20, 20), new CornerRadii(0), Insets.EMPTY)
-        ));
+        this.setPadding(new Insets(10));
 
         controller.setSidebarView(this);
 
@@ -50,14 +48,10 @@ public class SidebarView extends VBox {
         programControlBox.setAlignment(Pos.CENTER);
 
         runButton = new Button("Run");
-        runButton.setStyle(
-                "-fx-background-color: #1f68f0;"  // Darker blue gradient
-        );
+        runButton.setStyle("-fx-background-color: #1f68f0;");
 
         runWithStepsButton = new Button("Run in Steps");
-        runWithStepsButton.setStyle(
-                "-fx-background-color: #fa9305;"  // Darker orange gradient
-        );
+        runWithStepsButton.setStyle("-fx-background-color: #fa9305;");
 
         consoleButton = new Button("Console");
 
@@ -67,7 +61,10 @@ public class SidebarView extends VBox {
     private void createTabPane() {
         tabPane = new TabPane();
         tabPane.setTabClosingPolicy(TabPane.TabClosingPolicy.UNAVAILABLE);
-        //tabPane.setPadding(new Insets(5));
+        tabPane.setStyle(
+                        "-fx-border-color: #444;" +
+                        "-fx-border-width: 2;"
+        );
 
         variableTab = new Tab("Variables");
 
@@ -146,6 +143,8 @@ public class SidebarView extends VBox {
 
     private void createFunctionTab() {
         functionTab = new Tab("Functions");
+
+
         functionRoot = new TreeItem<>("Functions");
 
         functionRoot.getChildren().add(functionItems.get("print"));
@@ -163,6 +162,16 @@ public class SidebarView extends VBox {
         functionsTree = new TreeView<>(functionRoot);
         functionsTree.setFixedCellSize(32);
         functionsTree.setOnMouseClicked(controller::onTreeItemSelection);
+        functionsTree.setStyle(
+                        "-fx-border-color: transparent;" +
+                        "-fx-border-radius: 8;" +
+                        "-fx-background-radius: 8;" +
+                        "-fx-focus-color: transparent;" +
+                        "-fx-faint-focus-color: transparent;"
+        );
+
+
+
 
         functionTab.setContent(functionsTree);
     }

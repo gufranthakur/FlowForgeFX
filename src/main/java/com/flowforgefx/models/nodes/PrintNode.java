@@ -21,12 +21,12 @@ public class PrintNode extends FlowNode {
         super(title, controller);
         this.controller = controller;
 
-
-
-
         textField = new TextField();
         textField.setPromptText("Print...");
+        textField.setLayoutX(10);
+        textField.setLayoutY(35);
 
+        this.getChildren().add(textField);
     }
 
     public void print(String text) {
