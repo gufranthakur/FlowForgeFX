@@ -4,13 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b13386d5-f533-4290-91df-3ca7dae1d009" name="Changes" comment="Fixed performance by only updating when a change is required. Also added mouse dragging">
+    <list default="true" id="b13386d5-f533-4290-91df-3ca7dae1d009" name="Changes" comment="UI changes. UI looks more cleaner now.">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/flowforgefx/Console.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/flowforgefx/FlowForge.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/flowforgefx/FlowForge.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/flowforgefx/models/FlowNode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/flowforgefx/models/FlowNode.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/flowforgefx/models/nodes/PrintNode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/flowforgefx/models/nodes/PrintNode.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/flowforgefx/views/EditorView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/flowforgefx/views/EditorView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/flowforgefx/views/SidebarView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/flowforgefx/views/SidebarView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/flowforgefx/controller/StartController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/flowforgefx/controller/StartController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/flowforgefx/models/nodes/StartNode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/flowforgefx/models/nodes/StartNode.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,25 +55,25 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.FlowForge-Debug.executor": "Run",
-    "Application.FlowForge-Maximum.executor": "Run",
-    "Application.FlowForge-Optimised.executor": "Run",
-    "Application.FlowForge.executor": "Run",
-    "Application.HelloApplication.executor": "Run",
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "ToolWindow.Run.ShowToolbar": "false",
-    "git-widget-placeholder": "master",
-    "last_opened_file_path": "/home/gufranthakur/code/java/FlowForgeFX",
-    "project.structure.last.edited": "Project",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2056962",
-    "settings.editor.selected.configurable": "preferences.pathVariables"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.FlowForge-Debug.executor&quot;: &quot;Run&quot;,
+    &quot;Application.FlowForge-Maximum.executor&quot;: &quot;Run&quot;,
+    &quot;Application.FlowForge-Optimised.executor&quot;: &quot;Run&quot;,
+    &quot;Application.FlowForge.executor&quot;: &quot;Run&quot;,
+    &quot;Application.HelloApplication.executor&quot;: &quot;Run&quot;,
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;ToolWindow.Run.ShowToolbar&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/gufranthakur/code/java/FlowForgeFX&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2056962&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pathVariables&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected="Application.FlowForge-Optimised">
     <configuration name="FlowForge-Debug" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="com.flowforgefx.FlowForge" />
@@ -139,12 +140,21 @@
       <option name="project" value="LOCAL" />
       <updated>1753026860922</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="UI changes. UI looks more cleaner now.">
+      <option name="closed" value="true" />
+      <created>1753034097794</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1753034097794</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Fixed performance issue (by a little)" />
     <MESSAGE value="Fixed performance by only updating when a change is required. Also added mouse dragging" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed performance by only updating when a change is required. Also added mouse dragging" />
+    <MESSAGE value="UI changes. UI looks more cleaner now." />
+    <option name="LAST_COMMIT_MESSAGE" value="UI changes. UI looks more cleaner now." />
   </component>
 </project>

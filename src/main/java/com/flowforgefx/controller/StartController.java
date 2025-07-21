@@ -1,6 +1,7 @@
 package com.flowforgefx.controller;
 
 import com.flowforgefx.FlowForge;
+import javafx.scene.Node;
 
 public class StartController {
 
@@ -19,7 +20,9 @@ public class StartController {
 
         flowForge.editorPane.getChildren().add(flowForge.editorView);
 
-        flowForge.root.setCenter(flowForge.editorPane);
+        flowForge.splitPane.getItems().addAll(flowForge.editorPane, flowForge.console);
+
+        flowForge.root.setCenter(flowForge.splitPane);
         flowForge.root.setLeft(flowForge.sidebarView);
     }
 }

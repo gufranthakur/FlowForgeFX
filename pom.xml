@@ -38,10 +38,18 @@
             <version>${junit.version}</version>
             <scope>test</scope>
         </dependency>
+
+
+
         <dependency>
             <groupId>io.github.mkpaz</groupId>
             <artifactId>atlantafx-base</artifactId>
             <version>2.0.1</version>
+        </dependency>
+        <dependency>
+            <groupId>org.fxmisc.richtext</groupId>
+            <artifactId>richtextfx</artifactId>
+            <version>0.10.9</version>
         </dependency>
     </dependencies>
 
