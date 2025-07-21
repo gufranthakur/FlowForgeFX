@@ -1,9 +1,10 @@
 # FlowForge-FX (In development)
 
-<img width="1528" height="866" alt="image" src="https://github.com/user-attachments/assets/3e66d329-16ec-4f40-87b5-aaf975865917" />
+<img width="1528" height="866" alt="image" src="https://github.com/user-attachments/assets/00dcbe44-84d8-40ce-8ec8-19701845d86b" />
+
 
 This is a rewrite of my current ongoing FlowForge project. Previously was using Java swing, and now it's being re-written in JavaFX.
-Write now it's in a seperate repository from the original FlowForge, but once this is complete, the old FlowForge will be archived and named "FlowForge-Swing", 
+Right now it's in a seperate repository from the original FlowForge, but once this is complete, the old FlowForge will be archived and named "FlowForge-Swing", 
 and FlowForgeFX will be ranamed to FlowForge. 
 
 **Specifications**
