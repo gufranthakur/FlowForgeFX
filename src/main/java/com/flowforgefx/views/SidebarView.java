@@ -49,6 +49,7 @@ public class SidebarView extends VBox {
 
         runButton = new Button("Run");
         runButton.setStyle("-fx-background-color: #1f68f0;");
+        runButton.setOnMouseClicked(e -> controller.run());
 
         runWithStepsButton = new Button("Run in Steps");
         runWithStepsButton.setStyle("-fx-background-color: #fa9305;");
@@ -143,7 +144,6 @@ public class SidebarView extends VBox {
 
     private void createFunctionTab() {
         functionTab = new Tab("Functions");
-
 
         functionRoot = new TreeItem<>("Functions");
 

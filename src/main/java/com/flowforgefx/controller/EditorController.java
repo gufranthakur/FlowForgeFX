@@ -2,6 +2,7 @@ package com.flowforgefx.controller;
 
 import com.flowforgefx.FlowForge;
 import com.flowforgefx.models.FlowNode;
+import com.flowforgefx.models.nodes.StartNode;
 import com.flowforgefx.views.EditorView;
 
 import java.util.ArrayList;
@@ -15,15 +16,21 @@ public class EditorController {
     private FlowNode sourceNode;
     public FlowNode selectedNode;
 
+    public StartNode startNode;
+
     public EditorController(FlowForge flowForge) {
         this.flowForge = flowForge;
 
         nodes = new ArrayList<>();
+
+        startNode = new StartNode("Start", this);
+
     }
 
     public void addNode(FlowNode node) {
+        node.relocate(300, 300);
         nodes.add(node);
-        getEditorView().addNodeToEditor(node);
+        getEditorView().getChildren().add(node);
     }
 
     public void startConnection(FlowNode node) {
@@ -64,6 +71,10 @@ public class EditorController {
 
     public EditorView getEditorView() {
         return view;
+    }
+
+    public FlowForge getFlowForge() {
+        return flowForge;
     }
 
 }

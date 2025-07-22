@@ -34,6 +34,13 @@ public class SidebarController {
         }
     }
 
+    public void run() {
+        flowForge.console.clearConsole();
+        flowForge.console.print("Program execution started", "SUCCESS");
+
+        flowForge.editorController.startNode.execute(false);
+    }
+
     public void setSidebarView(SidebarView view) {
         this.sidebarView = view;
     }

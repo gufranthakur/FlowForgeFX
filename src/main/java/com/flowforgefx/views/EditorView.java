@@ -32,6 +32,8 @@ public class EditorView extends Group {
         createTimer();
         setupMouseHandlers();
 
+        controller.addNode(controller.startNode);
+
         sceneProperty().addListener((obs, oldScene, newScene) -> {
             if (newScene != null) {
                 viewportWidth = newScene.getWidth();
@@ -41,6 +43,8 @@ public class EditorView extends Group {
                 newScene.heightProperty().addListener((o, oldH, newH) -> viewportHeight = newH.doubleValue());
             }
         });
+
+
     }
 
     private void createCanvas() {
@@ -108,11 +112,6 @@ public class EditorView extends Group {
         };
 
         animationTimer.start();
-    }
-
-    public void addNodeToEditor(FlowNode node) {
-        node.relocate(200, 200);
-        this.getChildren().add(node);
     }
 
     public void render() {

@@ -30,40 +30,13 @@ public class PrintNode extends FlowNode {
     }
 
     public void print(String text) {
-        System.out.println(text);
+        controller.getFlowForge().console.print(text + "\n", "normal");
     }
 
     @Override
     public void execute(boolean isStepExecution) {
-        if (!inputXNodes.isEmpty()) {
-            for (FlowNode inputXNode : inputXNodes) {
-                switch (inputXNode) {
-//                    case IntegerNode integerNode -> print(textField.getText() + integerNode.getValue());
-//                    case StringNode stringNode -> print(textField.getText() + stringNode.getValue());
-//                    case BooleanNode booleanNode -> print(textField.getText() + booleanNode.getValue());
-//                    case FloatNode floatNode -> print(textField.getText() + floatNode.getValue());
-//                    case EqualToNode equalToNode -> print(textField.getText() + equalToNode.getIsEqual());
-//                    case GreaterThanNode greaterThanNode -> print(textField.getText() + greaterThanNode.getIsGreater());
-//                    case LessThanNode lessThanNode -> print(textField.getText() + lessThanNode.getIsLess());
-//                    case GreaterThanOrEqualNode greaterThanOrEqualNode -> print(textField.getText() + greaterThanOrEqualNode.getIsGreaterOrEqual());
-//                    case LessThanOrEqualNode lessThanOrEqualNode -> print(textField.getText() + lessThanOrEqualNode.getIsLessOrEqual());
-//                    case NotEqualToNode notEqualToNode -> print(textField.getText() + notEqualToNode.getIsNotEqual());
-//                    case LogicGateNode logicGateNode -> print(textField.getText() + logicGateNode.getResult());
-//                    case InputNode inputNode -> print(textField.getText() + inputNode.inputValue);
-//                    case LoopNode loopNode -> print(textField.getText() + loopNode.getIterationValue());
-//                    case AddNode addNode -> print(textField.getText() + addNode.getResult());
-//                    case SubtractNode subtractNode -> print(textField.getText() + subtractNode.getResult());
-//                    case MultiplyNode multiplyNode -> print(textField.getText() + multiplyNode.getResult());
-//                    case DivideNode divideNode -> print(textField.getText() + divideNode.getResult());
-//                    case ModulusNode modulusNode -> print(textField.getText() + modulusNode.getResult());
-//                    case RandomNode randomNode -> print(textField.getText() + randomNode.getResult());
-//                    case EvalNode evalNode -> print(textField.getText() + evalNode.getResult());
-                    default -> print("ERROR");
-                }
-            }
-        } else {
-            print(textField.getText());
-        }
+
+        print(textField.getText());
 
         for (FlowNode nodes : outputNodes) {
             if (nodes != null) nodes.execute(false);

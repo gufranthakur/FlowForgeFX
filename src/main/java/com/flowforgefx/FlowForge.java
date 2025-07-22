@@ -8,11 +8,13 @@ import com.flowforgefx.views.EditorView;
 import com.flowforgefx.views.SidebarView;
 import com.flowforgefx.views.StartView;
 import javafx.application.Application;
+import javafx.application.Platform;
 import javafx.geometry.Orientation;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.SplitPane;
 import javafx.scene.control.TextInputControl;
+import javafx.scene.input.KeyCombination;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
@@ -48,7 +50,10 @@ public class FlowForge extends Application {
         createControllers();
         createViews();
         addComponents();
+
+
         stage.show();
+        //Platform.runLater(() -> stage.setFullScreen(true));
     }
 
     public void create(Stage stage) {

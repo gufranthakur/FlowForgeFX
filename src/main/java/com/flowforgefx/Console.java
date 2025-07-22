@@ -90,6 +90,10 @@ public class Console extends VBox {
         consoleArea.moveTo(consoleArea.getLength());
     }
 
+    public void clearConsole() {
+        consoleArea.clear();
+    }
+
     private void resizeConsole() {
         isMinimized = !isMinimized;
 

@@ -2,6 +2,7 @@ package com.flowforgefx.models.nodes;
 
 import com.flowforgefx.controller.EditorController;
 import com.flowforgefx.models.FlowNode;
+import javafx.geometry.Point2D;
 
 public class StartNode extends FlowNode {
 
@@ -18,12 +19,15 @@ public class StartNode extends FlowNode {
 
     @Override
     public void execute(boolean isStepExecution) {
-        for (FlowNode node : outputXNodes) {
-            node.execute(isStepExecution);
+        for (FlowNode outputNode : outputNodes) {
+            outputNode.execute(isStepExecution);
         }
 
-        for (FlowNode node : outputXNodes) {
-            node.execute(isStepExecution);
+        for (FlowNode outputXNode : outputXNodes) {
+            outputXNode.execute(isStepExecution);
         }
+
     }
+
+
 }

@@ -25,7 +25,7 @@ public abstract class FlowNode extends Group {
 
     public RadioButton inputButton, outputButton, inputXButton, outputXButton;
 
-    private Rectangle background;
+    protected Rectangle background;
     private Label titleLabel;
 
     protected boolean isDragging = false;
@@ -94,6 +94,7 @@ public abstract class FlowNode extends Group {
                 node.outputXButton.setDisable(false);
             }
             controller.finishConnection(this);
+            controller.getEditorView().needsRender();
         });
 
         outputButton.setOnMouseClicked(e -> {
@@ -105,16 +106,18 @@ public abstract class FlowNode extends Group {
                 node.outputXButton.setDisable(true);
             }
             controller.startConnection(this);
+            controller.getEditorView().needsRender();
         });
 
         inputXButton.setOnMouseClicked(e -> {
             controller.selectedNode = this;
             for (FlowNode node : controller.nodes) {
                 node.isBeingXConnected = false;
-                node.inputButton.setDisable(true);
-                node.outputButton.setDisable(true);
+                node.inputButton.setDisable(false);
+                node.outputButton.setDisable(false);
             }
             controller.finishXConnection(this);
+            controller.getEditorView().needsRender();
         });
 
         outputXButton.setOnMouseClicked(e -> {
@@ -126,7 +129,7 @@ public abstract class FlowNode extends Group {
                 node.outputButton.setDisable(true);
             }
             controller.startXConnection(this);
-
+            controller.getEditorView().needsRender();
         });
     }
 
@@ -219,22 +222,22 @@ public abstract class FlowNode extends Group {
 
     public Point2D getInputPoint() {
         if (isMinimized) return new Point2D(getLayoutX(), getLayoutY() + 10);
-        return new Point2D(getLayoutX(), getLayoutY() + 75);
+        return new Point2D(getLayoutX(), getLayoutY() + 95);
     }
 
     public Point2D getOutputPoint() {
         if (isMinimized) return new Point2D(getLayoutX() + 210, getLayoutY() + 10);
-        return new Point2D(getLayoutX() + 210, getLayoutY() + 75);
+        return new Point2D(getLayoutX() + 200, getLayoutY() + 95);
     }
 
     public Point2D getInputXPoint() {
         if (isMinimized) return new Point2D(getLayoutX(), getLayoutY() + 25);
-        return new Point2D(getLayoutX(), getLayoutY() + 95);
+        return new Point2D(getLayoutX(), getLayoutY() + 125);
     }
 
     public Point2D getOutputXPoint() {
         if (isMinimized) return new Point2D(getLayoutX() + 210, getLayoutY() + 25);
-        return new Point2D(getLayoutX() + 210, getLayoutY() + 95);
+        return new Point2D(getLayoutX() + 200, getLayoutY() + 125);
     }
 
     public abstract void execute(boolean isStepExecution);
