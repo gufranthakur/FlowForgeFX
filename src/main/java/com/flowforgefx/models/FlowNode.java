@@ -16,7 +16,7 @@ import java.util.ArrayList;
 
 public abstract class FlowNode extends Group {
 
-    private EditorController controller;
+    protected EditorController controller;
 
     public ArrayList<FlowNode> inputNodes = new ArrayList<>();
     public ArrayList<FlowNode> outputNodes = new ArrayList<>();
@@ -32,6 +32,9 @@ public abstract class FlowNode extends Group {
     protected double dragOffsetX, dragOffsetY;
     protected final int width = 200;
     protected final int height = 150;
+
+    protected final int componentX = 10;
+    protected final int componentY = 35;
 
     public boolean isBeingConnected = false;
     public boolean isBeingXConnected = false;
@@ -49,8 +52,7 @@ public abstract class FlowNode extends Group {
     protected Color connectionColor = Color.WHITE;
     protected Color connectionXColor = Color.ORANGERED;
 
-    public FlowNode(String title, EditorController controller) {
-        this.title = title;
+    public FlowNode(EditorController controller) {
         this.controller = controller;
 
         background = new Rectangle(width, height, nodeTheme);
@@ -59,7 +61,7 @@ public abstract class FlowNode extends Group {
         background.setStroke(Color.GRAY);
         background.setStrokeWidth(1);
 
-        titleLabel = new Label(title);
+        titleLabel = new Label("Node");
         titleLabel.setTextFill(Color.WHITE);
         titleLabel.setLayoutX(10);
         titleLabel.setLayoutY(10);
@@ -241,4 +243,5 @@ public abstract class FlowNode extends Group {
     }
 
     public abstract void execute(boolean isStepExecution);
+
 }

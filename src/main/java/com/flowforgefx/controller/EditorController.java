@@ -4,6 +4,7 @@ import com.flowforgefx.FlowForge;
 import com.flowforgefx.models.FlowNode;
 import com.flowforgefx.models.nodes.StartNode;
 import com.flowforgefx.views.EditorView;
+import javafx.concurrent.Task;
 
 import java.util.ArrayList;
 
@@ -22,8 +23,7 @@ public class EditorController {
         this.flowForge = flowForge;
 
         nodes = new ArrayList<>();
-
-        startNode = new StartNode("Start", this);
+        startNode = new StartNode(this);
 
     }
 
@@ -75,6 +75,10 @@ public class EditorController {
 
     public FlowForge getFlowForge() {
         return flowForge;
+    }
+
+    public Task<?> getExecutor() {
+        return flowForge.forgeExecutor.executor;
     }
 
 }

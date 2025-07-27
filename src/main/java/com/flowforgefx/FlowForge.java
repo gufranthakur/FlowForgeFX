@@ -4,17 +4,16 @@ import atlantafx.base.theme.CupertinoDark;
 import com.flowforgefx.controller.EditorController;
 import com.flowforgefx.controller.SidebarController;
 import com.flowforgefx.controller.StartController;
+import com.flowforgefx.core.Console;
+import com.flowforgefx.core.ForgeExecutor;
 import com.flowforgefx.views.EditorView;
 import com.flowforgefx.views.SidebarView;
 import com.flowforgefx.views.StartView;
 import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.geometry.Orientation;
-import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.SplitPane;
-import javafx.scene.control.TextInputControl;
-import javafx.scene.input.KeyCombination;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
@@ -27,6 +26,8 @@ public class FlowForge extends Application {
     public Pane editorPane;
     public SplitPane splitPane;
     public Console console;
+
+    public ForgeExecutor forgeExecutor;
 
     public StartController startController;
     public SidebarController sidebarController;
@@ -47,22 +48,25 @@ public class FlowForge extends Application {
     @Override
     public void start(Stage stage) {
         create(stage);
+        createUI();
         createControllers();
         createViews();
         addComponents();
 
-
         stage.show();
-        //Platform.runLater(() -> stage.setFullScreen(true));
+        Platform.runLater(() -> stage.setFullScreen(true));
     }
 
     public void create(Stage stage) {
         Application.setUserAgentStylesheet(new CupertinoDark().getUserAgentStylesheet());
         root = new BorderPane();
         rootScene = new Scene(root, 1200, 640);
-
-        editorPane = new Pane();
         stage.setScene(rootScene);
+        stage.setTitle("FlowForge");
+    }
+
+    private void createUI() {
+        editorPane = new Pane();
 
         splitPane = new SplitPane();
         splitPane.setOrientation(Orientation.VERTICAL);
@@ -70,7 +74,7 @@ public class FlowForge extends Application {
 
         console = new Console(this);
 
-        stage.setTitle("FlowForge");
+        forgeExecutor = new ForgeExecutor(this);
     }
 
     private void createControllers() {
@@ -92,6 +96,9 @@ public class FlowForge extends Application {
         sidebarView.addComponents();
 
         root.setCenter(startView);
+
+        startController.switchToProgramPane();
+        editorView.render();
     }
 
 

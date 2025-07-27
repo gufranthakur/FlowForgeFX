@@ -6,4 +6,5 @@ module com.flowforgefx {
 
     exports com.flowforgefx;
     exports com.flowforgefx.views;
+    exports com.flowforgefx.core;
 }

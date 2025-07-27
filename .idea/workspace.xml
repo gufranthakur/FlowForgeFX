@@ -4,12 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b13386d5-f533-4290-91df-3ca7dae1d009" name="Changes" comment="some more progress">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/flowforgefx/models/nodes/DelayNode.java" afterDir="false" />
+    <list default="true" id="b13386d5-f533-4290-91df-3ca7dae1d009" name="Changes" comment="Removed animation timer since it was a bit resource intensive. Now update is only done when needed">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/flowforgefx/core/ForgeExecutor.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/flowforgefx/Console.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/flowforgefx/Console.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/flowforgefx/Console.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/flowforgefx/core/Console.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/flowforgefx/FlowForge.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/flowforgefx/FlowForge.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/flowforgefx/controller/EditorController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/flowforgefx/controller/EditorController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/flowforgefx/controller/SidebarController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/flowforgefx/controller/SidebarController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/flowforgefx/models/FlowNode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/flowforgefx/models/FlowNode.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/flowforgefx/views/EditorView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/flowforgefx/views/EditorView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/flowforgefx/models/nodes/DelayNode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/flowforgefx/models/nodes/DelayNode.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/flowforgefx/models/nodes/PrintNode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/flowforgefx/models/nodes/PrintNode.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/flowforgefx/models/nodes/StartNode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/flowforgefx/models/nodes/StartNode.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/flowforgefx/views/SidebarView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/flowforgefx/views/SidebarView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -165,7 +172,15 @@
       <option name="project" value="LOCAL" />
       <updated>1753157861953</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Removed animation timer since it was a bit resource intensive. Now update is only done when needed">
+      <option name="closed" value="true" />
+      <created>1753605420323</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1753605420323</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -174,6 +189,7 @@
     <MESSAGE value="UI changes. UI looks more cleaner now." />
     <MESSAGE value="Added Console" />
     <MESSAGE value="some more progress" />
-    <option name="LAST_COMMIT_MESSAGE" value="some more progress" />
+    <MESSAGE value="Removed animation timer since it was a bit resource intensive. Now update is only done when needed" />
+    <option name="LAST_COMMIT_MESSAGE" value="Removed animation timer since it was a bit resource intensive. Now update is only done when needed" />
   </component>
 </project>

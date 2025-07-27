@@ -5,7 +5,6 @@ import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.*;
 import javafx.scene.layout.*;
-import javafx.scene.paint.Color;
 
 import java.util.LinkedHashMap;
 
@@ -49,7 +48,7 @@ public class SidebarView extends VBox {
 
         runButton = new Button("Run");
         runButton.setStyle("-fx-background-color: #1f68f0;");
-        runButton.setOnMouseClicked(e -> controller.run());
+        runButton.setOnMouseClicked(e -> controller.getFlowForge().forgeExecutor.executeProgram());
 
         runWithStepsButton = new Button("Run in Steps");
         runWithStepsButton.setStyle("-fx-background-color: #fa9305;");

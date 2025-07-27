@@ -1,11 +1,11 @@
-package com.flowforgefx;
+package com.flowforgefx.core;
 
+import com.flowforgefx.FlowForge;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import org.fxmisc.richtext.InlineCssTextArea;

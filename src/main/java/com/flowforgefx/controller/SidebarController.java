@@ -1,6 +1,7 @@
 package com.flowforgefx.controller;
 
 import com.flowforgefx.FlowForge;
+import com.flowforgefx.models.nodes.DelayNode;
 import com.flowforgefx.models.nodes.PrintNode;
 import com.flowforgefx.views.SidebarView;
 import javafx.scene.input.MouseButton;
@@ -28,21 +29,18 @@ public class SidebarController {
     public void getSelectedNodeAtTree(String itemValue) {
         var controller = flowForge.editorController;
         switch (itemValue) {
-            case "Print" : controller.addNode(new PrintNode("Print", controller));
-            case "Input" : //
+            case "Print" : controller.addNode(new PrintNode(controller)); break;
+            case "Delay" : controller.addNode(new DelayNode(controller)); break;
 
         }
     }
 
-    public void run() {
-        flowForge.console.clearConsole();
-        flowForge.console.print("Program execution started", "SUCCESS");
-
-        flowForge.editorController.startNode.execute(false);
-    }
-
     public void setSidebarView(SidebarView view) {
         this.sidebarView = view;
+    }
+
+    public FlowForge getFlowForge() {
+        return this.flowForge;
     }
 
 }

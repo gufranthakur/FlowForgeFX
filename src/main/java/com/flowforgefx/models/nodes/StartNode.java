@@ -6,11 +6,10 @@ import javafx.geometry.Point2D;
 
 public class StartNode extends FlowNode {
 
-    private EditorController controller;
-
-    public StartNode(String title, EditorController controller) {
-        super(title, controller);
+    public StartNode(EditorController controller) {
+        super(controller);
         this.controller = controller;
+        setTitle("Start");
 
         inputButton.setVisible(false);
         inputXButton.setVisible(false);
