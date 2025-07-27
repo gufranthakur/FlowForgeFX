@@ -13,7 +13,6 @@ public class EditorView extends Group {
 
     private EditorController controller;
     private Canvas canvas;
-    private AnimationTimer animationTimer;
 
     private double viewportWidth = 800; // default values
     private double viewportHeight = 600;
@@ -21,7 +20,6 @@ public class EditorView extends Group {
     // Mouse dragging variables
     private boolean isDragging = false;
     private double lastMouseX, lastMouseY;
-    private boolean needsRender = true;
 
     public EditorView(EditorController controller) {
         this.controller = controller;
@@ -29,7 +27,6 @@ public class EditorView extends Group {
         this.setFocusTraversable(true);
 
         createCanvas();
-        createTimer();
         setupMouseHandlers();
 
         controller.addNode(controller.startNode);
@@ -43,7 +40,6 @@ public class EditorView extends Group {
                 newScene.heightProperty().addListener((o, oldH, newH) -> viewportHeight = newH.doubleValue());
             }
         });
-
 
     }
 
@@ -81,7 +77,7 @@ public class EditorView extends Group {
             lastMouseX = event.getSceneX();
             lastMouseY = event.getSceneY();
 
-            needsRender = true;
+            render();
             event.consume();
         }
     }
@@ -100,18 +96,6 @@ public class EditorView extends Group {
 
     private void handleMouseReleased(MouseEvent event) {
         isDragging = false;
-    }
-
-    private void createTimer() {
-        animationTimer = new AnimationTimer() {
-            @Override
-            public void handle(long l) {
-                if (needsRender) render();
-                needsRender = false;
-            }
-        };
-
-        animationTimer.start();
     }
 
     public void render() {
@@ -144,7 +128,4 @@ public class EditorView extends Group {
 
     }
 
-    public void needsRender() {
-        needsRender = true;
-    }
 }

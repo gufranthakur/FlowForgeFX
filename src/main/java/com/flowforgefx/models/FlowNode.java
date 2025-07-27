@@ -94,7 +94,7 @@ public abstract class FlowNode extends Group {
                 node.outputXButton.setDisable(false);
             }
             controller.finishConnection(this);
-            controller.getEditorView().needsRender();
+            controller.getEditorView().render();
         });
 
         outputButton.setOnMouseClicked(e -> {
@@ -106,7 +106,7 @@ public abstract class FlowNode extends Group {
                 node.outputXButton.setDisable(true);
             }
             controller.startConnection(this);
-            controller.getEditorView().needsRender();
+            controller.getEditorView().render();
         });
 
         inputXButton.setOnMouseClicked(e -> {
@@ -117,7 +117,7 @@ public abstract class FlowNode extends Group {
                 node.outputButton.setDisable(false);
             }
             controller.finishXConnection(this);
-            controller.getEditorView().needsRender();
+            controller.getEditorView().render();
         });
 
         outputXButton.setOnMouseClicked(e -> {
@@ -129,7 +129,7 @@ public abstract class FlowNode extends Group {
                 node.outputButton.setDisable(true);
             }
             controller.startXConnection(this);
-            controller.getEditorView().needsRender();
+            controller.getEditorView().render();
         });
     }
 
@@ -141,7 +141,7 @@ public abstract class FlowNode extends Group {
                 dragOffsetY = e.getSceneY() - getLayoutY();
                 setCursor(Cursor.MOVE);
 
-                controller.getEditorView().needsRender();
+                controller.getEditorView().render();
             }
         });
 
@@ -155,7 +155,7 @@ public abstract class FlowNode extends Group {
                 double newX = e.getSceneX() - dragOffsetX;
                 double newY = e.getSceneY() - dragOffsetY;
                 relocate(newX, newY);
-                controller.getEditorView().needsRender();
+                controller.getEditorView().render();
             }
         });
     }

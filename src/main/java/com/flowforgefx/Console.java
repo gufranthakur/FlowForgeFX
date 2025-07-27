@@ -83,7 +83,7 @@ public class Console extends VBox {
         }
 
         int start = consoleArea.getLength();
-        consoleArea.appendText(value);
+        consoleArea.appendText(value + "\n");
         int end = consoleArea.getLength();
 
         consoleArea.setStyle(start, end, "-fx-fill: " + color + ";");
