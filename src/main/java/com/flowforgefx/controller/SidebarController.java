@@ -3,6 +3,7 @@ package com.flowforgefx.controller;
 import com.flowforgefx.FlowForge;
 import com.flowforgefx.models.nodes.DelayNode;
 import com.flowforgefx.models.nodes.InputNode;
+import com.flowforgefx.models.nodes.LoopNode;
 import com.flowforgefx.models.nodes.PrintNode;
 import com.flowforgefx.views.SidebarView;
 import javafx.scene.input.MouseButton;
@@ -33,6 +34,7 @@ public class SidebarController {
             case "Print" : controller.addNode(new PrintNode(controller)); break;
             case "Input" : controller.addNode(new InputNode(controller)); break;
             case "Delay" : controller.addNode(new DelayNode(controller)); break;
+            case "Loop" : controller.addNode(new LoopNode(controller)); break;
         }
     }
 

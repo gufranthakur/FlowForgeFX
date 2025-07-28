@@ -1,6 +1,7 @@
 package com.flowforgefx.controller;
 
 import com.flowforgefx.FlowForge;
+import com.flowforgefx.core.Console;
 import com.flowforgefx.models.FlowNode;
 import com.flowforgefx.models.nodes.StartNode;
 import com.flowforgefx.views.EditorView;
@@ -81,6 +82,10 @@ public class EditorController {
 
     public Task<?> getExecutor() {
         return flowForge.forgeExecutor.executor;
+    }
+
+    public Console getConsole() {
+        return flowForge.console;
     }
 
 }

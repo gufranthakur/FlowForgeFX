@@ -27,7 +27,7 @@ public class PrintNode extends FlowNode {
     }
 
     public void print(String text) {
-        controller.getFlowForge().console.print(text + "\n", "normal");
+        controller.getFlowForge().console.print(text, "normal");
     }
 
     @Override

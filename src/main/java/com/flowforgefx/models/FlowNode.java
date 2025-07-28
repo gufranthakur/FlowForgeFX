@@ -4,6 +4,7 @@ import com.flowforgefx.controller.EditorController;
 import javafx.geometry.Point2D;
 import javafx.scene.Cursor;
 import javafx.scene.Group;
+import javafx.scene.Node;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
@@ -26,12 +27,15 @@ public abstract class FlowNode extends Group {
     public RadioButton inputButton, outputButton, inputXButton, outputXButton;
 
     protected Rectangle background;
-    private Label titleLabel;
+    protected Label titleLabel;
 
     protected boolean isDragging = false;
     protected double dragOffsetX, dragOffsetY;
     protected final int width = 180;
     protected final int height = 140;
+
+    protected final int variableWidth = 180;
+    protected final int variableHeight = 80;
 
     protected final int componentX = 10;
     protected final int componentY = 35;
@@ -57,6 +61,13 @@ public abstract class FlowNode extends Group {
     public FlowNode(EditorController controller) {
         this.controller = controller;
 
+        createNodeUI();
+        createListeners();
+        initDrag();
+
+    }
+
+    public void createNodeUI() {
         background = new Rectangle(width, height, nodeTheme);
         background.setArcWidth(10);
         background.setArcHeight(10);
@@ -76,12 +87,9 @@ public abstract class FlowNode extends Group {
 
         getChildren().addAll(background, titleLabel, inputButton, inputXButton, outputButton, outputXButton);
 
-        createListeners();
-        initDrag();
-
     }
 
-    private RadioButton createRadio(String text, double x, double y) {
+    protected RadioButton createRadio(String text, double x, double y) {
         RadioButton button = new RadioButton(text);
         button.setTextFill(Color.WHITE);
         button.setStyle("-fx-font-size: 12px");
