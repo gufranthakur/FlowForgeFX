@@ -7,6 +7,7 @@ import javafx.concurrent.Task;
 public class ForgeExecutor {
 
     private FlowForge flowForge;
+    public boolean isExecuting = false;
     public Task<?> executor;
 
     public ForgeExecutor(FlowForge flowForge) {
@@ -14,8 +15,9 @@ public class ForgeExecutor {
     }
 
     public void executeProgram() {
-        flowForge.console.clearConsole();
-        flowForge.console.print("Program execution started", "SUCCESS");
+        flowForge.console.print("Program execution started", "NORMAL");
+        flowForge.console.inputField.setDisable(true);
+        isExecuting = true;
 
         executor = new Task<>() {
             @Override
@@ -28,11 +30,14 @@ public class ForgeExecutor {
 
         executor.setOnSucceeded(e -> {
             flowForge.console.print("Program executed successfully", "SUCCESS");
+            flowForge.console.inputField.setDisable(false);
+            isExecuting = false;
         });
 
         executor.setOnFailed(e -> {
             flowForge.console.print("Program failed to execute", "FAIL");
             System.out.println(executor.getException());
+            isExecuting = false;
         });
     }
 

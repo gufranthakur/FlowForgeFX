@@ -22,6 +22,7 @@ public class DelayNode extends FlowNode {
 
     @Override
     public void execute(boolean isStepExecution) {
+        controller.currentNodeAtExecution = this;
 
         synchronized (controller.getExecutor()) {
             try {

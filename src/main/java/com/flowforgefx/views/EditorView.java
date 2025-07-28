@@ -52,6 +52,7 @@ public class EditorView extends Group {
         this.setOnMousePressed(this::handleMousePressed);
         this.setOnMouseDragged(this::handleMouseDragged);
         this.setOnMouseReleased(this::handleMouseReleased);
+        render();
     }
 
     private void handleMousePressed(MouseEvent event) {

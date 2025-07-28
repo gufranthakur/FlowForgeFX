@@ -15,7 +15,9 @@ public class EditorController {
 
     public ArrayList<FlowNode> nodes;
     private FlowNode sourceNode;
+
     public FlowNode selectedNode;
+    public FlowNode currentNodeAtExecution;
 
     public StartNode startNode;
 

@@ -11,6 +11,7 @@ import com.flowforgefx.views.SidebarView;
 import com.flowforgefx.views.StartView;
 import javafx.application.Application;
 import javafx.application.Platform;
+import javafx.concurrent.Task;
 import javafx.geometry.Orientation;
 import javafx.scene.Scene;
 import javafx.scene.control.SplitPane;
@@ -54,7 +55,8 @@ public class FlowForge extends Application {
         addComponents();
 
         stage.show();
-        Platform.runLater(() -> stage.setFullScreen(true));
+        Platform.runLater(() -> stage.setMaximized(true));
+        editorView.render();
     }
 
     public void create(Stage stage) {
@@ -98,7 +100,7 @@ public class FlowForge extends Application {
         root.setCenter(startView);
 
         startController.switchToProgramPane();
-        editorView.render();
+
     }
 
 

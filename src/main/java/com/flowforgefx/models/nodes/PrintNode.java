@@ -30,11 +30,22 @@ public class PrintNode extends FlowNode {
 
     @Override
     public void execute(boolean isStepExecution) {
+        controller.currentNodeAtExecution = this;
 
-        Platform.runLater(() -> print(textField.getText()));
+        StringBuilder outputStringBuilder = new StringBuilder();
+        outputStringBuilder.append(textField.getText());
 
         for (FlowNode nodes : outputNodes) {
             if (nodes != null) nodes.execute(false);
         }
+
+        for (FlowNode node : inputXNodes) {
+            if (node instanceof InputNode) {
+                outputStringBuilder.append(((InputNode) node).input);
+            }
+        }
+
+        String outputString = outputStringBuilder.toString();
+        Platform.runLater(() -> print(outputString));
     }
 }

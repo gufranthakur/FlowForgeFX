@@ -18,6 +18,8 @@ public class StartNode extends FlowNode {
 
     @Override
     public void execute(boolean isStepExecution) {
+        controller.currentNodeAtExecution = this;
+
         for (FlowNode outputNode : outputNodes) {
             outputNode.execute(isStepExecution);
         }
