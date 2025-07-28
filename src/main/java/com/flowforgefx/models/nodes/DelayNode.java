@@ -15,6 +15,8 @@ public class DelayNode extends FlowNode {
         spinner = new Spinner<>(0, 100000, 1000);
         spinner.setLayoutX(componentX);
         spinner.setLayoutY(componentY);
+        spinner.setPrefWidth(componentWidth);
+        spinner.setPrefHeight(componentHeight);
         spinner.setEditable(true);
 
         this.getChildren().add(spinner);

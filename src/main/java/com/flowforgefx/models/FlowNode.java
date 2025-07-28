@@ -30,11 +30,13 @@ public abstract class FlowNode extends Group {
 
     protected boolean isDragging = false;
     protected double dragOffsetX, dragOffsetY;
-    protected final int width = 200;
-    protected final int height = 150;
+    protected final int width = 180;
+    protected final int height = 140;
 
     protected final int componentX = 10;
     protected final int componentY = 35;
+    protected final int componentWidth = 160;
+    protected final int componentHeight = 30;
 
     public boolean isBeingConnected = false;
     public boolean isBeingXConnected = false;
@@ -65,6 +67,7 @@ public abstract class FlowNode extends Group {
         titleLabel.setTextFill(Color.WHITE);
         titleLabel.setLayoutX(10);
         titleLabel.setLayoutY(10);
+        titleLabel.setStyle("-fx-font-size: 12px");
 
         inputButton = createRadio("Input", 10, 80);
         inputXButton = createRadio("InputX", 10, 110);
@@ -81,6 +84,7 @@ public abstract class FlowNode extends Group {
     private RadioButton createRadio(String text, double x, double y) {
         RadioButton button = new RadioButton(text);
         button.setTextFill(Color.WHITE);
+        button.setStyle("-fx-font-size: 12px");
         button.setBackground(Background.EMPTY);
         button.setLayoutX(x);
         button.setLayoutY(y);

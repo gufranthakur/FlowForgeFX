@@ -18,6 +18,8 @@ public class PrintNode extends FlowNode {
         textField.setPromptText("Print...");
         textField.setLayoutX(componentX);
         textField.setLayoutY(componentY);
+        textField.setPrefWidth(componentWidth);
+        textField.setPrefHeight(componentHeight);
 
         outputXButton.setVisible(false);
 

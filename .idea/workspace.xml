@@ -4,19 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b13386d5-f533-4290-91df-3ca7dae1d009" name="Changes" comment="Multithreading and delay node added">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/flowforgefx/models/nodes/InputNode.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/JetBrainsMono-Regular.ttf" afterDir="false" />
+    <list default="true" id="b13386d5-f533-4290-91df-3ca7dae1d009" name="Changes" comment="Implemented Input node">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/flowforgefx/FlowForge.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/flowforgefx/FlowForge.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/flowforgefx/controller/EditorController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/flowforgefx/controller/EditorController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/flowforgefx/controller/SidebarController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/flowforgefx/controller/SidebarController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/flowforgefx/core/Console.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/flowforgefx/core/Console.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/flowforgefx/core/ForgeExecutor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/flowforgefx/core/ForgeExecutor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/flowforgefx/models/FlowNode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/flowforgefx/models/FlowNode.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/flowforgefx/models/nodes/DelayNode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/flowforgefx/models/nodes/DelayNode.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/flowforgefx/models/nodes/InputNode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/flowforgefx/models/nodes/InputNode.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/flowforgefx/models/nodes/PrintNode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/flowforgefx/models/nodes/PrintNode.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/flowforgefx/models/nodes/StartNode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/flowforgefx/models/nodes/StartNode.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/flowforgefx/views/EditorView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/flowforgefx/views/EditorView.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,6 +19,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="kotlin.jupyter.empty" />
         <option value="Class" />
       </list>
     </option>
@@ -193,7 +187,15 @@
       <option name="project" value="LOCAL" />
       <updated>1753620544725</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Implemented Input node">
+      <option name="closed" value="true" />
+      <created>1753677704157</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1753677704157</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -204,6 +206,7 @@
     <MESSAGE value="some more progress" />
     <MESSAGE value="Removed animation timer since it was a bit resource intensive. Now update is only done when needed" />
     <MESSAGE value="Multithreading and delay node added" />
-    <option name="LAST_COMMIT_MESSAGE" value="Multithreading and delay node added" />
+    <MESSAGE value="Implemented Input node" />
+    <option name="LAST_COMMIT_MESSAGE" value="Implemented Input node" />
   </component>
 </project>
