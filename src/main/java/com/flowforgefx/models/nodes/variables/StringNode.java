@@ -1,7 +1,7 @@
 package com.flowforgefx.models.nodes.variables;
 
 import com.flowforgefx.controller.EditorController;
-import com.flowforgefx.models.FlowNode;
+import com.flowforgefx.models.nodes.FlowNode;
 import javafx.scene.control.Label;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;

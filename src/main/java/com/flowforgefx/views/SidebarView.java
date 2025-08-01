@@ -12,20 +12,18 @@ public class SidebarView extends VBox {
 
     private SidebarController controller;
 
-    private HBox programControlBox;
-    private Button runButton, runWithStepsButton, consoleButton;
-
     private TabPane tabPane;
 
     private Tab functionTab;
     public TreeView<String> functionsTree;
     private TreeItem<String> functionRoot;
-        private TreeItem<String> arithmeticItem, comparatorsItem, logicGatesItem, utilityItems;
+    private TreeItem<String> arithmeticItem, comparatorsItem, logicGatesItem, utilityItems;
     private LinkedHashMap<String , TreeItem<String>> functionItems;
 
     private Tab variableTab;
-    private TreeView<String> variablesTree;
+    public TreeView<String> variablesTree;
     private TreeItem<String> variableRoot;
+    private TreeItem<String> stringTreeItem, intTreeItem, booleanTreeItem, floatTreeItem;
 
     public SidebarView(SidebarController controller) {
         this.controller = controller;
@@ -34,28 +32,11 @@ public class SidebarView extends VBox {
 
         controller.setSidebarView(this);
 
-        createProgramControlBox();
         createTabPane();
         createFunctionItems();
         createFunctionTab();
-    }
-
-    private void createProgramControlBox() {
-        programControlBox = new HBox();
-        programControlBox.setPadding(new Insets(5));
-        programControlBox.setSpacing(5);
-        programControlBox.setAlignment(Pos.CENTER);
-
-        runButton = new Button("Run");
-        runButton.setStyle("-fx-background-color: #1f68f0;");
-        runButton.setOnMouseClicked(e -> controller.getFlowForge().forgeExecutor.executeProgram());
-
-        runWithStepsButton = new Button("Run in Steps");
-        runWithStepsButton.setStyle("-fx-background-color: #fa9305;");
-
-        consoleButton = new Button("Console");
-
-        programControlBox.getChildren().addAll(runButton, runWithStepsButton, consoleButton);
+        createVariableItems();
+        createVariableTab();
     }
 
     private void createTabPane() {
@@ -65,8 +46,6 @@ public class SidebarView extends VBox {
                         "-fx-border-color: #444;" +
                         "-fx-border-width: 2;"
         );
-
-        variableTab = new Tab("Variables");
 
     }
 
@@ -169,10 +148,37 @@ public class SidebarView extends VBox {
                         "-fx-faint-focus-color: transparent;"
         );
 
-
-
-
         functionTab.setContent(functionsTree);
+    }
+
+    private void createVariableItems() {
+        intTreeItem = new TreeItem<>("Integers");
+        stringTreeItem = new TreeItem<>("String");
+        booleanTreeItem = new TreeItem<>("Booleans");
+        floatTreeItem = new TreeItem<>("Floats");
+    }
+
+    private void createVariableTab() {
+        variableRoot = new TreeItem<>("Variables");
+
+        variableRoot.getChildren().add(intTreeItem);
+        variableRoot.getChildren().add(stringTreeItem);
+        variableRoot.getChildren().add(booleanTreeItem);
+        variableRoot.getChildren().add(floatTreeItem);
+
+        variablesTree = new TreeView<>(variableRoot);
+        variablesTree.setStyle(
+                "-fx-border-color: transparent;" +
+                        "-fx-border-radius: 8;" +
+                        "-fx-background-radius: 8;" +
+                        "-fx-focus-color: transparent;" +
+                        "-fx-faint-focus-color: transparent;"
+        );
+
+        variablesTree.setOnMouseClicked(controller::onVariableTreeItemSelection);
+
+        variableTab = new Tab("Variables");
+        variableTab.setContent(variablesTree);
     }
 
     public void addComponents() {
@@ -181,7 +187,6 @@ public class SidebarView extends VBox {
         tabPane.getTabs().add(functionTab);
         tabPane.getTabs().add(variableTab);
 
-        this.getChildren().add(programControlBox);
         this.getChildren().add(tabPane);
     }
 

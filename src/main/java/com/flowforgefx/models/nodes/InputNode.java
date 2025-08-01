@@ -1,7 +1,6 @@
 package com.flowforgefx.models.nodes;
 
 import com.flowforgefx.controller.EditorController;
-import com.flowforgefx.models.FlowNode;
 import javafx.application.Platform;
 import javafx.scene.control.TextField;
 

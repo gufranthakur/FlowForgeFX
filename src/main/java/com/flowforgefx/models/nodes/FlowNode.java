@@ -1,10 +1,9 @@
-package com.flowforgefx.models;
+package com.flowforgefx.models.nodes;
 
 import com.flowforgefx.controller.EditorController;
 import javafx.geometry.Point2D;
 import javafx.scene.Cursor;
 import javafx.scene.Group;
-import javafx.scene.Node;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;

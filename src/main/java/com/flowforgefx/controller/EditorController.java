@@ -2,12 +2,14 @@ package com.flowforgefx.controller;
 
 import com.flowforgefx.FlowForge;
 import com.flowforgefx.core.Console;
-import com.flowforgefx.models.FlowNode;
+import com.flowforgefx.models.nodes.FlowNode;
 import com.flowforgefx.models.nodes.StartNode;
 import com.flowforgefx.views.EditorView;
 import javafx.concurrent.Task;
 
+import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class EditorController {
 
@@ -21,6 +23,10 @@ public class EditorController {
     public FlowNode currentNodeAtExecution;
 
     public StartNode startNode;
+    public HashMap<String, Integer> integerHashMap;
+    public HashMap<String, String> stringStringHashMap;
+    public HashMap<String, Boolean> booleanHashMap;
+    public HashMap<String, Float> floatHashMap;
 
     public EditorController(FlowForge flowForge) {
         this.flowForge = flowForge;
@@ -28,12 +34,35 @@ public class EditorController {
         nodes = new ArrayList<>();
         startNode = new StartNode(this);
 
+        integerHashMap = new HashMap<>(5);
+        stringStringHashMap = new HashMap<>(5);
+        booleanHashMap = new HashMap<>(5);
+        floatHashMap = new HashMap<>(5);
+
     }
 
     public void addNode(FlowNode node) {
-        node.relocate(300, 300);
-        nodes.add(node);
-        getEditorView().getChildren().add(node);
+        try {
+            int lastNodeX = (int) nodes.getLast().getLayoutX();
+            node.relocate(lastNodeX + 230, 300);
+            nodes.add(node);
+            getEditorView().getChildren().add(node);
+
+        } catch (Exception e) {
+            node.relocate(300, 300);
+            nodes.add(node);
+            getEditorView().getChildren().add(node);
+        }
+
+    }
+
+    public void addVariable(String name, String type) {
+        switch (type) {
+            case "int" : integerHashMap.put(name, 0); break;
+            case "string" : stringStringHashMap.put(name, ""); break;
+            case "boolean" : booleanHashMap.put(name, false); break;
+            case "float" : floatHashMap.put(name, 0.0f); break;
+        }
     }
 
     public void startConnection(FlowNode node) {

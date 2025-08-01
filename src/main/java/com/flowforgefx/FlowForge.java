@@ -43,8 +43,7 @@ public class FlowForge extends Application {
     public static final String greenTheme = "#11c232";
 
     public static final int largeFont = 20;
-    public static final int mediumFont = 16;
-    public static final int smallFont = 12;
+
 
     @Override
     public void start(Stage stage) {

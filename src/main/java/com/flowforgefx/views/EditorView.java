@@ -1,8 +1,7 @@
 package com.flowforgefx.views;
 
 import com.flowforgefx.controller.EditorController;
-import com.flowforgefx.models.FlowNode;
-import javafx.animation.AnimationTimer;
+import com.flowforgefx.models.nodes.FlowNode;
 import javafx.scene.Group;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;

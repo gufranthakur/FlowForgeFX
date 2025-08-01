@@ -1,8 +1,6 @@
 package com.flowforgefx.models.nodes;
 
 import com.flowforgefx.controller.EditorController;
-import com.flowforgefx.models.FlowNode;
-import javafx.geometry.Point2D;
 
 public class StartNode extends FlowNode {
 

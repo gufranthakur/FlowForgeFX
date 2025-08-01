@@ -1,7 +1,6 @@
 package com.flowforgefx.models.nodes;
 
 import com.flowforgefx.controller.EditorController;
-import com.flowforgefx.models.FlowNode;
 import javafx.scene.control.Spinner;
 
 public class DelayNode extends FlowNode {
