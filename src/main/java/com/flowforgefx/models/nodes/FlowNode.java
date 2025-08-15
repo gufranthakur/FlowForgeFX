@@ -239,8 +239,8 @@ public abstract class FlowNode extends Group {
     }
 
     public Point2D getOutputPoint() {
-        if (isMinimized) return new Point2D(getLayoutX() + 210, getLayoutY() + 10);
-        return new Point2D(getLayoutX() + 200, getLayoutY() + 95);
+        if (isMinimized) return new Point2D(getLayoutX() + width, getLayoutY() + 10);
+        return new Point2D(getLayoutX() + width, getLayoutY() + 95);
     }
 
     public Point2D getInputXPoint() {
@@ -250,7 +250,7 @@ public abstract class FlowNode extends Group {
 
     public Point2D getOutputXPoint() {
         if (isMinimized) return new Point2D(getLayoutX() + 210, getLayoutY() + 25);
-        return new Point2D(getLayoutX() + 200, getLayoutY() + 125);
+        return new Point2D(getLayoutX() + width, getLayoutY() + 125);
     }
 
     public abstract void execute(boolean isStepExecution);
