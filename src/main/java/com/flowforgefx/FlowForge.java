@@ -7,6 +7,7 @@ import com.flowforgefx.controller.SidebarController;
 import com.flowforgefx.controller.StartController;
 import com.flowforgefx.core.Console;
 import com.flowforgefx.core.ForgeExecutor;
+import com.flowforgefx.models.project.ForgeProject;
 import com.flowforgefx.views.EditorView;
 import com.flowforgefx.views.SidebarView;
 import com.flowforgefx.views.StartView;
@@ -43,6 +44,7 @@ public class FlowForge extends Application {
 
     public static final int largeFont = 20;
 
+    public ForgeProject project;
 
     @Override
     public void start(Stage stage) {
@@ -97,7 +99,7 @@ public class FlowForge extends Application {
 
         root.setCenter(startView);
 
-        startController.switchToProgramPane();
+        startController.newProject();
 
     }
 

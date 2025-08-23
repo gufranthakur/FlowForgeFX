@@ -3,6 +3,7 @@ module com.flowforgefx {
     requires javafx.fxml;
     requires atlantafx.base;
     requires org.fxmisc.richtext;
+    
 
 
     opens com.flowforgefx to javafx.fxml;

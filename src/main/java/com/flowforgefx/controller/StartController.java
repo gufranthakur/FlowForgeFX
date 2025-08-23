@@ -1,6 +1,7 @@
 package com.flowforgefx.controller;
 
 import com.flowforgefx.FlowForge;
+import com.flowforgefx.models.project.ForgeProject;
 
 public class StartController {
 
@@ -10,11 +11,14 @@ public class StartController {
         this.flowForge = flowForge;
     }
 
-    public void switchToStartPane() {
+    public void loadProject() {
 
     }
 
-    public void switchToProgramPane() {
+    public void newProject() {
+        flowForge.project = new ForgeProject(flowForge);
+        flowForge.project.createNewProjectData();
+
         flowForge.root.getChildren().remove(flowForge.startView);
 
         flowForge.editorPane.getChildren().add(flowForge.editorView);

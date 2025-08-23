@@ -31,7 +31,7 @@ public class StartView extends VBox {
                 "-fx-background-color: %s; -fx-font-size: %d;",
                 primaryTheme, largeFont
         ));
-        newProjectButton.setOnMouseClicked(e -> startController.switchToProgramPane());
+        newProjectButton.setOnMouseClicked(e -> startController.newProject());
 
         openProjectButton = new Button("Open Project");
         openProjectButton.setPrefWidth(150);

@@ -26,7 +26,7 @@ public class SidebarView extends VBox {
     private Tab variableTab;
     public TreeView<String> variablesTree;
     private TreeItem<String> variableRoot;
-    private TreeItem<String> stringTreeItem, intTreeItem, booleanTreeItem, floatTreeItem;
+    public TreeItem<String> stringTreeItem, intTreeItem, booleanTreeItem, floatTreeItem;
 
     public SidebarView(SidebarController controller) {
         this.controller = controller;
