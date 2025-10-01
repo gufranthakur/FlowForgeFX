@@ -156,7 +156,7 @@ public class SidebarView extends VBox {
 
     private void createVariableItems() {
         intTreeItem = new TreeItem<>("Integers");
-        stringTreeItem = new TreeItem<>("String");
+        stringTreeItem = new TreeItem<>("Strings");
         booleanTreeItem = new TreeItem<>("Booleans");
         floatTreeItem = new TreeItem<>("Floats");
     }

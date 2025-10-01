@@ -87,8 +87,6 @@ public class FlowForge extends Application {
 
     private void createViews() {
         startView = new StartView(startController);
-        startView.createComponents();
-
         editorView = new EditorView(editorController);
         sidebarView = new SidebarView(sidebarController);
     }

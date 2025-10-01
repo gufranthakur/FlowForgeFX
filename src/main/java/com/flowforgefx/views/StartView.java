@@ -19,6 +19,7 @@ public class StartView extends VBox {
 
     public StartView(StartController startController) {
         this.startController = startController;
+        createComponents();
     }
 
     public void createComponents() {

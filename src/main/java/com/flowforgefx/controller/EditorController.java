@@ -55,15 +55,6 @@ public class EditorController {
 
     }
 
-    public void addVariable(String name, String type) {
-        switch (type) {
-            case "int" : integerHashMap.put(name, 0); break;
-            case "string" : stringStringHashMap.put(name, ""); break;
-            case "boolean" : booleanHashMap.put(name, false); break;
-            case "float" : floatHashMap.put(name, 0.0f); break;
-        }
-    }
-
     public void startConnection(FlowNode node) {
         this.sourceNode = node;
     }

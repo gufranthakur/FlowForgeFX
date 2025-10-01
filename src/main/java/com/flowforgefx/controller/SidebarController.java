@@ -6,15 +6,14 @@ import com.flowforgefx.models.nodes.DelayNode;
 import com.flowforgefx.models.nodes.InputNode;
 import com.flowforgefx.models.nodes.LoopNode;
 import com.flowforgefx.models.nodes.PrintNode;
+import com.flowforgefx.models.nodes.variables.StringNode;
 import com.flowforgefx.views.SidebarView;
-import javafx.event.ActionEvent;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TextInputDialog;
 import javafx.scene.control.TreeItem;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 
-import java.util.Map;
 import java.util.Optional;
 
 
@@ -72,7 +71,13 @@ public class SidebarController {
     private void getSelectedVariableAtTree(String itemValue) {
         var controller = flowForge.editorController;
 
+        if (selectedItem.getParent() == null) return;
 
+        switch (selectedItem.getParent().getValue()) {
+            case "Strings" : controller.addNode(new StringNode(controller, itemValue)); break;
+            case "Integers" :
+                System.out.println();;
+        }
     }
 
     public void addVariable() {
