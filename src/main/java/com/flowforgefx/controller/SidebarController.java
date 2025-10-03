@@ -64,17 +64,17 @@ public class SidebarController {
             variableMenu.display(sidebarView.variablesTree, event.getScreenX(), event.getScreenY());
         } else {
             if (selectedItem == null) return;
-            getSelectedVariableAtTree(selectedItem.getValue());
+            getSelectedVariableAtTree();
         }
     }
 
-    private void getSelectedVariableAtTree(String itemValue) {
+    private void getSelectedVariableAtTree() {
         var controller = flowForge.editorController;
 
         if (selectedItem.getParent() == null) return;
 
         switch (selectedItem.getParent().getValue()) {
-            case "Strings" : controller.addNode(new StringNode(controller, itemValue)); break;
+            case "Strings" : controller.addNode(new StringNode(controller)); break;
             case "Integers" :
                 System.out.println();;
         }

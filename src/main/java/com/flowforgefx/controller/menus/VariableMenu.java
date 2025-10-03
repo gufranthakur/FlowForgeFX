@@ -4,14 +4,10 @@ import com.flowforgefx.controller.SidebarController;
 import javafx.scene.Node;
 import javafx.scene.control.*;
 
-import java.util.Optional;
-
-import static com.flowforgefx.FlowForge.*;
-
 public class VariableMenu extends ContextMenu {
 
     private SidebarController controller;
-    private MenuItem addVariableItem, renameVariableItem, deleteVariableItem;
+    private MenuItem addVariableItem, renameVariableItem, deleteVariableItem, cancelItem;
 
     public VariableMenu(SidebarController controller) {
         this.controller = controller;
@@ -25,7 +21,9 @@ public class VariableMenu extends ContextMenu {
         deleteVariableItem = new MenuItem("Delete");
 //        deleteVariableItem.setOnAction(e -> deleteVariable());
 
-        this.getItems().addAll(addVariableItem, renameVariableItem, deleteVariableItem);
+        cancelItem = new MenuItem("Cancel");
+
+        this.getItems().addAll(addVariableItem, renameVariableItem, deleteVariableItem, cancelItem);
     }
 
     public void display(Node variablesTree, double x, double y) {
