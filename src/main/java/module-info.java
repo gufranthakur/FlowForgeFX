@@ -4,7 +4,7 @@ module com.flowforgefx {
     requires atlantafx.base;
     requires org.fxmisc.richtext;
     requires javafx.graphics;
-
+    requires com.flowforgefx;
 
 
     opens com.flowforgefx to javafx.fxml;

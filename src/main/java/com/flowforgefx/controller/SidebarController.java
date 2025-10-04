@@ -2,10 +2,7 @@ package com.flowforgefx.controller;
 
 import com.flowforgefx.FlowForge;
 import com.flowforgefx.controller.menus.VariableMenu;
-import com.flowforgefx.models.nodes.DelayNode;
-import com.flowforgefx.models.nodes.InputNode;
-import com.flowforgefx.models.nodes.LoopNode;
-import com.flowforgefx.models.nodes.PrintNode;
+import com.flowforgefx.models.nodes.*;
 import com.flowforgefx.models.nodes.variables.BooleanNode;
 import com.flowforgefx.models.nodes.variables.FloatNode;
 import com.flowforgefx.models.nodes.variables.IntegerNode;
@@ -54,10 +51,11 @@ public class SidebarController {
     public void getSelectedNodeAtTree(String itemValue) {
         var controller = flowForge.editorController;
         switch (itemValue) {
-            case "Print" : controller.addNode(new PrintNode(controller)); break;
-            case "Input" : controller.addNode(new InputNode(controller)); break;
-            case "Delay" : controller.addNode(new DelayNode(controller)); break;
-            case "Loop" : controller.addNode(new LoopNode(controller)); break;
+            case "Print" -> controller.addNode(new PrintNode(controller));
+            case "Input" -> controller.addNode(new InputNode(controller));
+            case "Delay" -> controller.addNode(new DelayNode(controller));
+            case "Loop" -> controller.addNode(new LoopNode(controller));
+            case "Conditional Loop" -> controller.addNode(new ConditionalLoop(controller));
         }
     }
 

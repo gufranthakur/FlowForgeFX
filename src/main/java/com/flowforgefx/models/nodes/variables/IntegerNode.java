@@ -5,6 +5,7 @@ import com.flowforgefx.models.nodes.FlowNode;
 import com.flowforgefx.models.nodes.InputNode;
 import com.flowforgefx.models.project.ForgeProject;
 import com.flowforgefx.utils.DialogUtility;
+import javafx.application.Platform;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Spinner;
 import javafx.scene.control.TextField;
@@ -46,7 +47,13 @@ public class IntegerNode extends FlowNode {
                     setValue(Integer.valueOf(valueField.getText()));
                 }
             } catch (NumberFormatException e) {
-                DialogUtility.showError("Non-integer value in Integer");
+
+                if (valueField.getText().isEmpty()) {
+                    setValue(0);
+                    return;
+                }
+
+                Platform.runLater(() -> controller.getConsole().print("Error : Non-Integer value in Integer", "ERR"));
             }
 
         }

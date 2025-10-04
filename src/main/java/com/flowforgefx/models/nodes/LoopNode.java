@@ -1,44 +1,55 @@
 package com.flowforgefx.models.nodes;
 
 import com.flowforgefx.controller.EditorController;
+import com.flowforgefx.models.nodes.variables.IntegerNode;
+import com.flowforgefx.utils.DialogUtility;
 import javafx.application.Platform;
 import javafx.scene.control.Spinner;
+import javafx.scene.control.TextField;
 
 public class LoopNode extends FlowNode {
 
     public int iterationValue;
-    public Spinner<Integer> iterationSpinner;
+    public TextField iterationField;
 
     public LoopNode(EditorController controller) {
         super(controller);
         setTitle("Loop");
+
+        configUI();
     }
     @Override
     protected void configUI() {
-        iterationSpinner = new Spinner<>(0, 1000, 10);
-        iterationSpinner.setLayoutX(componentX);
-        iterationSpinner.setLayoutY(componentY);
-        iterationSpinner.setPrefWidth(componentWidth);
-        iterationSpinner.setPrefHeight(componentHeight);
+        inputXButton.setText("times");
+        outputXButton.setText("iteration");
 
-        this.getChildren().add(iterationSpinner);
+        iterationField = new TextField();
+        iterationField.setPromptText("iteration amount");
+
+        placeComponent(iterationField);
     }
 
     @Override
     public void execute(boolean isStepExecution) {
         controller.currentNodeAtExecution = this;
-        iterationValue = iterationSpinner.getValue();
+        iterationValue = Integer.parseInt(iterationField.getText());
 
         for (FlowNode node : inputXNodes) {
-            if (node instanceof InputNode) {
+            if (node instanceof InputNode inputNode) {
                 try {
-                    iterationValue = Integer.parseInt(((InputNode) node).input);
-                    Platform.runLater(() -> iterationSpinner.setDisable(true));
+                    iterationValue = Integer.parseInt(inputNode.input);
+                    Platform.runLater(() -> iterationField.setDisable(true));
                 } catch (NumberFormatException e) {
                     Platform.runLater(() -> controller.getConsole().print("Error : Provided String value instead of int", "ERR"));
                     Platform.runLater(() -> controller.getConsole().print("Defaulting to default iteration value", "WARN"));
                 }
+            } else if (node instanceof IntegerNode integerNode) {
+                iterationValue = integerNode.getValue();
             }
+        }
+
+        if (iterationValue > 1000) {
+            Platform.runLater(() -> controller.getConsole().print("Warning : Iteration number is large", "WARN"));
         }
 
         for (int i = 0; i <= iterationValue; i++) {

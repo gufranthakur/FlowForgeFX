@@ -47,11 +47,12 @@ public class PrintNode extends FlowNode {
         for (FlowNode node : inputXNodes) {
             switch (node) {
                 case InputNode inputNode -> outputStringBuilder.append(inputNode.input);
+                case LoopNode loopNode -> outputStringBuilder.append(loopNode.iterationValue);
 
                 case StringNode stringNode -> outputStringBuilder.append(stringNode.getValue());
                 case IntegerNode integerNode -> outputStringBuilder.append(integerNode.getValue());
-                case BooleanNode booleanNode -> outputStringBuilder.append(booleanNode.getValue().toString());
-                case FloatNode floatNode -> outputStringBuilder.append(floatNode.getValue().toString());
+                case BooleanNode booleanNode -> outputStringBuilder.append(booleanNode.getValue());
+                case FloatNode floatNode -> outputStringBuilder.append(floatNode.getValue());
 
                 default -> System.out.println("Error at print node line 50 ");
             }
