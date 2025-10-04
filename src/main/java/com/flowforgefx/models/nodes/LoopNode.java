@@ -12,7 +12,9 @@ public class LoopNode extends FlowNode {
     public LoopNode(EditorController controller) {
         super(controller);
         setTitle("Loop");
-
+    }
+    @Override
+    protected void configUI() {
         iterationSpinner = new Spinner<>(0, 1000, 10);
         iterationSpinner.setLayoutX(componentX);
         iterationSpinner.setLayoutY(componentY);

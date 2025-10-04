@@ -2,6 +2,7 @@ package com.flowforgefx.models.nodes;
 
 
 import com.flowforgefx.controller.EditorController;
+import com.flowforgefx.models.nodes.variables.StringNode;
 import javafx.application.Platform;
 import javafx.scene.control.TextField;
 
@@ -13,17 +14,17 @@ public class PrintNode extends FlowNode {
         super(controller);
         setTitle("Print");
 
-        textField = new TextField();
-        textField.setPromptText("Print...");
-        textField.setLayoutX(componentX);
-        textField.setLayoutY(componentY);
-        textField.setPrefWidth(componentWidth);
-        textField.setPrefHeight(componentHeight);
+        configUI();
+    }
 
+    @Override
+    protected void configUI() {
         outputXButton.setVisible(false);
 
-        this.getChildren().add(textField);
+        textField = new TextField();
+        placeComponent(textField);
     }
+
 
     public void print(String text) {
         controller.getFlowForge().console.print(text, "normal");
@@ -41,8 +42,10 @@ public class PrintNode extends FlowNode {
         }
 
         for (FlowNode node : inputXNodes) {
-            if (node instanceof InputNode) {
-                outputStringBuilder.append(((InputNode) node).input);
+            if (node instanceof InputNode inputNode) {
+                outputStringBuilder.append(inputNode.input);
+            } else if (node instanceof StringNode stringNode) {
+                outputStringBuilder.append(stringNode.getValue());
             }
         }
 

@@ -11,14 +11,15 @@ public class DelayNode extends FlowNode {
         super(controller);
         setTitle("Delay");
 
+        configUI();
+    }
+
+    @Override
+    protected void configUI() {
         spinner = new Spinner<>(0, 100000, 1000);
-        spinner.setLayoutX(componentX);
-        spinner.setLayoutY(componentY);
-        spinner.setPrefWidth(componentWidth);
-        spinner.setPrefHeight(componentHeight);
         spinner.setEditable(true);
 
-        this.getChildren().add(spinner);
+        this.placeComponent(spinner);
     }
 
     @Override

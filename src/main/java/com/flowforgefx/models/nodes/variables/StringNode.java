@@ -2,44 +2,56 @@ package com.flowforgefx.models.nodes.variables;
 
 import com.flowforgefx.controller.EditorController;
 import com.flowforgefx.models.nodes.FlowNode;
+import com.flowforgefx.models.nodes.InputNode;
+import com.flowforgefx.models.project.ForgeProject;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 
 public class StringNode extends FlowNode {
 
+    private final String variableName;
     private String value;
 
-    public StringNode(EditorController controller) {
-        super(controller);
+    private TextField stringField;
 
+    public StringNode(EditorController controller, String variableName) {
+        super(controller, variableName);
+        this.variableName = variableName;
+
+        configUI();
     }
-
     @Override
-    public void createNodeUI() {
-        background = new Rectangle(variableWidth, variableWidth, nodeTheme);
-        background.setArcWidth(10);
-        background.setArcHeight(10);
-        background.setStroke(Color.GRAY);
-        background.setStrokeWidth(1);
+    protected void configUI() {
+        inputButton.setVisible(false);
+        outputButton.setVisible(false);
 
-        titleLabel = new Label("Node");
-        titleLabel.setTextFill(Color.WHITE);
-        titleLabel.setLayoutX(10);
-        titleLabel.setLayoutY(10);
-        titleLabel.setStyle("-fx-font-size: 12px");
+        stringField = new TextField();
+        stringField.setPromptText("String value...");
 
-        inputButton = createRadio("Input", 10, 80);
-        inputXButton = createRadio("InputX", 10, 110);
-        outputButton = createRadio("Output", 100, 80);
-        outputXButton = createRadio("OutputX", 100, 110);
-
-        getChildren().addAll(background, titleLabel, inputButton, inputXButton, outputButton, outputXButton);
+        placeComponent(stringField);
     }
 
     @Override
     public void execute(boolean isStepExecution) {
 
+        for (FlowNode node : inputXNodes) {
+            if (node instanceof InputNode inputNode) {
+                setValue(inputNode.input);
+            } else {
+                setValue(stringField.getText());
+            }
+        }
+
+    }
+
+    public String getValue() {
+        return ForgeProject.strings.get(variableName);
+    }
+
+    public void setValue(String value) {
+        ForgeProject.strings.put(variableName, value);
     }
 
 }

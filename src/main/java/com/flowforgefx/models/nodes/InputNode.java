@@ -15,16 +15,16 @@ public class InputNode extends FlowNode {
         super(controller);
         setTitle("Input");
 
+        configUI();
+    }
+    @Override
+    protected void configUI() {
         inputXButton.setVisible(false);
 
         promptField = new TextField();
         promptField.setPromptText("Prompt");
-        promptField.setLayoutX(componentX);
-        promptField.setLayoutY(componentY);
-        promptField.setPrefWidth(componentWidth);
-        promptField.setPrefHeight(componentHeight);
 
-        this.getChildren().add(promptField);
+        this.placeComponent(promptField);
     }
 
     @Override

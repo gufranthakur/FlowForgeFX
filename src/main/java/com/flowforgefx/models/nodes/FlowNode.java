@@ -4,7 +4,9 @@ import com.flowforgefx.controller.EditorController;
 import javafx.geometry.Point2D;
 import javafx.scene.Cursor;
 import javafx.scene.Group;
+import javafx.scene.Node;
 import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.control.Control;
 import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
 import javafx.scene.input.MouseButton;
@@ -33,9 +35,6 @@ public abstract class FlowNode extends Group {
     protected final int width = 180;
     protected final int height = 140;
 
-    protected final int variableWidth = 180;
-    protected final int variableHeight = 80;
-
     protected final int componentX = 10;
     protected final int componentY = 35;
     protected final int componentWidth = 160;
@@ -49,7 +48,6 @@ public abstract class FlowNode extends Group {
     public boolean isNodeDuringStepExecution;
     public String comment = "";
 
-    public String nodeType;
     public String title;
 
     protected Color nodeTheme = Color.rgb(20, 20, 20);
@@ -64,6 +62,15 @@ public abstract class FlowNode extends Group {
         createListeners();
         initDrag();
 
+    }
+
+    public FlowNode(EditorController controller, String variableName) {
+        this.controller = controller;
+
+        createNodeUI();
+        setTitle(variableName);
+        createListeners();
+        initDrag();
     }
 
     public void createNodeUI() {
@@ -252,6 +259,17 @@ public abstract class FlowNode extends Group {
         if (isMinimized) return new Point2D(getLayoutX() + 210, getLayoutY() + 25);
         return new Point2D(getLayoutX() + width, getLayoutY() + 125);
     }
+
+    protected void placeComponent(Control component) {
+        component.setLayoutX(componentX);
+        component.setLayoutY(componentY);
+        component.setPrefWidth(componentWidth);
+        component.setPrefHeight(componentHeight);
+
+        this.getChildren().add(component);
+    }
+
+    protected abstract void configUI();
 
     public abstract void execute(boolean isStepExecution);
 

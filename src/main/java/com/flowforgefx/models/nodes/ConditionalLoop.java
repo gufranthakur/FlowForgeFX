@@ -9,7 +9,10 @@ public class ConditionalLoop extends FlowNode {
     public ConditionalLoop(EditorController controller) {
         super(controller);
         setTitle("Conditional Loop");
+    }
 
+    @Override
+    protected void configUI() {
 
     }
 

@@ -9,21 +9,25 @@ public class StartNode extends FlowNode {
         this.controller = controller;
         setTitle("Start");
 
+        configUI();
+    }
+
+    @Override
+    protected void configUI() {
         inputButton.setVisible(false);
         inputXButton.setVisible(false);
-
     }
 
     @Override
     public void execute(boolean isStepExecution) {
         controller.currentNodeAtExecution = this;
 
-        for (FlowNode outputNode : outputNodes) {
-            outputNode.execute(isStepExecution);
-        }
-
         for (FlowNode outputXNode : outputXNodes) {
             outputXNode.execute(isStepExecution);
+        }
+
+        for (FlowNode outputNode : outputNodes) {
+            outputNode.execute(isStepExecution);
         }
 
     }

@@ -74,7 +74,7 @@ public class SidebarController {
         if (selectedItem.getParent() == null) return;
 
         switch (selectedItem.getParent().getValue()) {
-            case "Strings" : controller.addNode(new StringNode(controller)); break;
+            case "Strings" : controller.addNode(new StringNode(controller, selectedItem.getValue())); break;
             case "Integers" :
                 System.out.println();;
         }
