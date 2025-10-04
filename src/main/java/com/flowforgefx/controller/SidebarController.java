@@ -7,6 +7,7 @@ import com.flowforgefx.models.nodes.InputNode;
 import com.flowforgefx.models.nodes.LoopNode;
 import com.flowforgefx.models.nodes.PrintNode;
 import com.flowforgefx.models.nodes.variables.BooleanNode;
+import com.flowforgefx.models.nodes.variables.FloatNode;
 import com.flowforgefx.models.nodes.variables.IntegerNode;
 import com.flowforgefx.models.nodes.variables.StringNode;
 import com.flowforgefx.utils.DialogUtility;
@@ -75,11 +76,13 @@ public class SidebarController {
         var controller = flowForge.editorController;
 
         if (selectedItem.getParent() == null) return;
+        String variableName = selectedItem.getValue();
 
         switch (selectedItem.getParent().getValue()) {
-            case "Strings" -> controller.addNode(new StringNode(controller, selectedItem.getValue()));
-            case "Integers" -> controller.addNode(new IntegerNode(controller, selectedItem.getValue()));
-            case "Booleans" -> controller.addNode(new BooleanNode(controller, selectedItem.getValue()));
+            case "Strings" -> controller.addNode(new StringNode(controller, variableName));
+            case "Integers" -> controller.addNode(new IntegerNode(controller, variableName));
+            case "Booleans" -> controller.addNode(new BooleanNode(controller, variableName));
+            case "Floats" -> controller.addNode(new FloatNode(controller, variableName));
         }
     }
 
@@ -100,24 +103,25 @@ public class SidebarController {
         if (name.isBlank()) return;
 
         switch (selectedItem.getValue()) {
-            case "Integers" : {
+            case "Integers" -> {
                 integers.put(name, 0);
                 sidebarView.intTreeItem.getChildren().add(new TreeItem<>(name));
-            } break;
-            case "Strings" : {
+            }
+            case "Strings" -> {
                 strings.put(name, "");
                 sidebarView.stringTreeItem.getChildren().add(new TreeItem<>(name));
-            } break;
-            case "Booleans" : {
+            }
+            case "Booleans" -> {
                 booleans.put(name, false);
                 sidebarView.booleanTreeItem.getChildren().add(new TreeItem<>(name));
-            } break;
-            case "floats" : {
+            }
+            case "Floats" -> {
                 floats.put(name, 0.0f);
                 sidebarView.floatTreeItem.getChildren().add(new TreeItem<>(name));
-            } break;
-            default: break;
+            }
+            default -> { }
         }
+
 
     }
 

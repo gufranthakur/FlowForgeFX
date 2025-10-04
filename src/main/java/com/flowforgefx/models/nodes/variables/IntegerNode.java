@@ -26,6 +26,9 @@ public class IntegerNode extends FlowNode {
 
     @Override
     protected void configUI() {
+        inputButton.setVisible(false);
+        outputButton.setVisible(false);
+
         valueField = new TextField();
         valueField.setPromptText("Integer Value...");
 

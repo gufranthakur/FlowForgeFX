@@ -26,6 +26,9 @@ public class FloatNode extends FlowNode {
 
     @Override
     protected void configUI() {
+        inputButton.setVisible(false);
+        outputButton.setVisible(false);
+
         valueField = new TextField();
         valueField.setPromptText("Float Value...");
 
@@ -43,15 +46,15 @@ public class FloatNode extends FlowNode {
                     setValue(Float.valueOf(valueField.getText()));
                 }
             } catch (NumberFormatException e) {
-                DialogUtility.showError("Non-integer value in Integer");
+                DialogUtility.showError("Non-Float value in Float");
             }
 
         }
 
     }
 
-    public Integer getValue() {
-        return ForgeProject.integers.get(variableName);
+    public Float getValue() {
+        return ForgeProject.floats.get(variableName);
     }
 
     public void setValue(Float floatValue) {

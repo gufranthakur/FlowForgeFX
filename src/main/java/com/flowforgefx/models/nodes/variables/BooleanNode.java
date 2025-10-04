@@ -22,6 +22,9 @@ public class BooleanNode extends FlowNode {
 
     @Override
     protected void configUI() {
+        inputButton.setVisible(false);
+        outputButton.setVisible(false);
+
         valueBox = new CheckBox("Boolean Value");
 
         this.placeComponent(valueBox);
