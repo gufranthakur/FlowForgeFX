@@ -2,6 +2,9 @@ package com.flowforgefx.models.nodes;
 
 
 import com.flowforgefx.controller.EditorController;
+import com.flowforgefx.models.nodes.variables.BooleanNode;
+import com.flowforgefx.models.nodes.variables.FloatNode;
+import com.flowforgefx.models.nodes.variables.IntegerNode;
 import com.flowforgefx.models.nodes.variables.StringNode;
 import javafx.application.Platform;
 import javafx.scene.control.TextField;
@@ -42,10 +45,15 @@ public class PrintNode extends FlowNode {
         }
 
         for (FlowNode node : inputXNodes) {
-            if (node instanceof InputNode inputNode) {
-                outputStringBuilder.append(inputNode.input);
-            } else if (node instanceof StringNode stringNode) {
-                outputStringBuilder.append(stringNode.getValue());
+            switch (node) {
+                case InputNode inputNode -> outputStringBuilder.append(inputNode.input);
+
+                case StringNode stringNode -> outputStringBuilder.append(stringNode.getValue());
+                case IntegerNode integerNode -> outputStringBuilder.append(integerNode.getValue());
+                case BooleanNode booleanNode -> outputStringBuilder.append(booleanNode.getValue().toString());
+                case FloatNode floatNode -> outputStringBuilder.append(floatNode.getValue().toString());
+
+                default -> System.out.println("Error at print node line 50 ");
             }
         }
 

@@ -6,6 +6,7 @@ module com.flowforgefx {
     requires javafx.graphics;
 
 
+
     opens com.flowforgefx to javafx.fxml;
     exports com.flowforgefx;
 }

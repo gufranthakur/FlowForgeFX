@@ -6,7 +6,10 @@ import com.flowforgefx.models.nodes.DelayNode;
 import com.flowforgefx.models.nodes.InputNode;
 import com.flowforgefx.models.nodes.LoopNode;
 import com.flowforgefx.models.nodes.PrintNode;
+import com.flowforgefx.models.nodes.variables.BooleanNode;
+import com.flowforgefx.models.nodes.variables.IntegerNode;
 import com.flowforgefx.models.nodes.variables.StringNode;
+import com.flowforgefx.utils.DialogUtility;
 import com.flowforgefx.views.SidebarView;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TextInputDialog;
@@ -74,9 +77,9 @@ public class SidebarController {
         if (selectedItem.getParent() == null) return;
 
         switch (selectedItem.getParent().getValue()) {
-            case "Strings" : controller.addNode(new StringNode(controller, selectedItem.getValue())); break;
-            case "Integers" :
-                System.out.println();;
+            case "Strings" -> controller.addNode(new StringNode(controller, selectedItem.getValue()));
+            case "Integers" -> controller.addNode(new IntegerNode(controller, selectedItem.getValue()));
+            case "Booleans" -> controller.addNode(new BooleanNode(controller, selectedItem.getValue()));
         }
     }
 
@@ -90,11 +93,7 @@ public class SidebarController {
         String name = input.get();
 
         if (isVariableNameUsed(name)) {
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Error");
-            alert.setHeaderText(null);
-            alert.setContentText("Variable name is already in use");
-            alert.showAndWait();
+            DialogUtility.showError("Variable name already in use");
             return;
         }
 

@@ -4,17 +4,14 @@ import com.flowforgefx.controller.EditorController;
 import com.flowforgefx.models.nodes.FlowNode;
 import com.flowforgefx.models.nodes.InputNode;
 import com.flowforgefx.models.project.ForgeProject;
-import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import javafx.scene.paint.Color;
-import javafx.scene.shape.Rectangle;
 
 public class StringNode extends FlowNode {
 
     private final String variableName;
     private String value;
 
-    private TextField stringField;
+    private TextField valueField;
 
     public StringNode(EditorController controller, String variableName) {
         super(controller, variableName);
@@ -27,10 +24,10 @@ public class StringNode extends FlowNode {
         inputButton.setVisible(false);
         outputButton.setVisible(false);
 
-        stringField = new TextField();
-        stringField.setPromptText("String value...");
+        valueField = new TextField();
+        valueField.setPromptText("String value...");
 
-        placeComponent(stringField);
+        placeComponent(valueField);
     }
 
     @Override
@@ -40,7 +37,7 @@ public class StringNode extends FlowNode {
             if (node instanceof InputNode inputNode) {
                 setValue(inputNode.input);
             } else {
-                setValue(stringField.getText());
+                setValue(valueField.getText());
             }
         }
 
